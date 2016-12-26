@@ -1,0 +1,9 @@
+{
+  "name": "photography-backend",
+  "version": "1.0.0",
+  "description": "API server for Masha's Photography Website.",
+  "main": "index.js",
+  "repository": "https://github.com/rockchalkwushock/photography-backend.git",
+  "author": "Cody Brunner <rockchalkwushock@icloud.com>",
+  "license": "MIT"
+}
