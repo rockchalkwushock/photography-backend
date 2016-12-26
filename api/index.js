@@ -12,7 +12,7 @@ import './config/dbConfig';
 const port = process.env.PORT;
 const mode = process.env.NODE_ENV;
 
-const app = express();
+export const app = express();
 
 // Middleware
 app.use(bodyParser.json());
@@ -21,6 +21,9 @@ app.use(morgan('dev'));
 app.use(cors());
 
 // Routing
+app.get('/api/v1', (req, res) => {
+  res.status(200).json({ version: '1.0.0' });
+});
 
 // Express Server
 const server = Server(app);
