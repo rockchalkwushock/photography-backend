@@ -2,8 +2,43 @@
   "name": "photography-backend",
   "version": "1.0.0",
   "description": "API server for Masha's Photography Website.",
-  "main": "index.js",
+  "scripts": {
+    "start": "NODE_ENV=production nodemon index.js",
+    "start:dev": "NODE_ENV=deployment nodemon index.js",
+    "test": "",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
+  },
   "repository": "https://github.com/rockchalkwushock/photography-backend.git",
+  "keywords": [
+    "bcrypt",
+    "dotenv",
+    "express",
+    "passport",
+    "passport-local",
+    "passport-jwt"
+  ],
   "author": "Cody Brunner <rockchalkwushock@icloud.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rockchalkwushock/photo-backend/issues"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.20.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-stage-0": "^6.16.0",
+    "babel-register": "^6.18.0",
+    "dotenv": "^2.0.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.1.1",
+    "eslint": "^3.12.2",
+    "eslint-config-rallycoding": "^3.1.0",
+    "nodemon": "^1.11.0"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "stage-0"
+    ]
+  }
 }

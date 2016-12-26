@@ -1,0 +1,8 @@
+{
+  "extends": "rallycoding",
+  "parser": "babel-eslint",
+  "env": {
+    "node": true,
+    "mocha": true
+   }
+}
