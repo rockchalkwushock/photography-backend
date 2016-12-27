@@ -20,7 +20,7 @@
   "author": "Cody Brunner <rockchalkwushock@icloud.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/rockchalkwushock/photo-backend/issues"
+    "url": "https://github.com/rockchalkwushock/photography-backend/issues"
   },
   "dependencies": {
     "babel-polyfill": "^6.20.0",
