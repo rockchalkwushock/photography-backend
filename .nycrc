@@ -1,4 +1,7 @@
 {
+"exclude": [
+  "config/**"
+],
   "reporter": [
     "lcov",
     "text-summary"
