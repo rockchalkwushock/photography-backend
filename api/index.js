@@ -14,7 +14,7 @@ import './config/dbConfig';
 const port = process.env.PORT;
 const mode = process.env.NODE_ENV;
 
-export const app = express();
+const app = express();
 
 // Middleware
 app.use((req, res, next) => {
@@ -41,7 +41,7 @@ app.use(passport.initialize());
 app.use('/api/v1', [userRoutes]);
 
 // Express Server
-const server = Server(app);
+export const server = Server(app);
 server.listen(port, err => {
   if (err) console.log(`Error happned: ${err}`);
   console.log(`Server listening on http://localhost:${port} in ${mode}.`);
