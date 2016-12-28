@@ -1,6 +1,6 @@
 {
 "exclude": [
-  "config/**"
+  "config"
 ],
   "reporter": [
     "lcov",
