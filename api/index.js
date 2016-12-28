@@ -25,11 +25,8 @@ app.use((req, res, next) => {
   next();
 });
 app.use((err, req, res, next) => {
-  if (res.headersSent) {
-    return next(err);
-  }
-
-  return res.status(err.status || port).render('500');
+  if (res.headersSent) next(err);
+  res.status(err.status || port).render('500');
 });
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
