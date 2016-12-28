@@ -48,6 +48,6 @@ export const signup = (req, res) => {
 // VALIDATE USER WITH JWT TOKEN
 export const login = (req, res, next) => {
   const user = setUserInfo(req.user);
-  res.send({ success: true, token: `JWT ${generateToken(user)}`, user });
+  res.status(201).json({ success: true, token: `JWT ${generateToken(user)}`, user });
   next();
 };
