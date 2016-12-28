@@ -1,8 +1,8 @@
-import React from 'react';
+import { connect } from 'react-redux';
 import Signup from './Signup';
+import signupUser from '../actions'; // TODO: Create actionCreator.
 
-const SignupContianer = () => (
-  <Signup />
-);
-
-export default SignupContianer;
+export default connect(
+  null,
+  signupUser
+)(Signup);
