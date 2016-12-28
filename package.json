@@ -4,7 +4,7 @@
   "description": "API server for Masha's Photography Website.",
   "scripts": {
     "start": "nodemon index.js",
-    "start:dev": "NODE_ENV=deployment nodemon index.js",
+    "start:dev": "NODE_ENV=development nodemon index.js",
     "test": "cross-env NODE_ENV=test nyc --reporter=html --reporter=lcov _mocha",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
