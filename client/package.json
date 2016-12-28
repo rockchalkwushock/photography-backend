@@ -2,7 +2,6 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:8000/",
   "devDependencies": {
     "react-scripts": "0.8.4"
   },
@@ -17,7 +16,8 @@
     "redux-form": "^6.4.1",
     "redux-logger": "^2.7.4",
     "redux-pack": "^0.1.4",
-    "redux-promise-middleware": "^4.2.0"
+    "redux-promise-middleware": "^4.2.0",
+    "semantic-ui-react": "^0.63.2"
   },
   "scripts": {
     "start": "react-scripts start",
