@@ -10,10 +10,7 @@ const styles = {
   }
 };
 
-// TODO: Connect actionCreator to form.
-// TODO: Connect validation to form.
-
-const Signup = () => (
+const Signup = ({ handleSubmit, signupUser, valid }) => (
  <div style={styles.root}>
     <Grid centered columns={3} style={{ height: '90vh' }} verticalAlign='middle'>
       <Grid.Row>
@@ -23,7 +20,7 @@ const Signup = () => (
             header='Welcome to Admin!'
             content='Please register as a user.'
           />
-          <Form className='attached fluid segment' >
+          <Form className='attached fluid segment' onSubmit={handleSubmit(signupUser)}>
             <Form.Field>
               <label htmlFor='email'>Email</label>
               <Field
@@ -54,7 +51,7 @@ const Signup = () => (
                 type='password'
               />
             </Form.Field>
-            <Button primary type='submit'>Sign Up</Button>
+            <Button primary disabled={!valid} type='submit'>Sign Up</Button>
           </Form>
         </Grid.Column>
       </Grid.Row>
