@@ -1,8 +1,8 @@
-import React from 'react';
+import { connect } from 'react-redux';
 import Login from './Login';
+import { loginUser } from '../actions';
 
-const LoginContianer = () => (
-  <Login />
-);
-
-export default LoginContianer;
+export default connect(
+  null,
+  { loginUser }
+)(Login);
