@@ -10,10 +10,11 @@ const styles = {
   }
 };
 
-const HomePage = () => (
-  <div className='homepage' style={styles.root}>
-    <h1>YOU ARE ON THE HOMEPAGE</h1>
+const PhotoBooth = () => (
+  <div className='photo-booth' style={styles.root}>
+    <h1>YOU ARE ON THE PhotoBooth PAGE</h1>
+    <h3>This is an auth protected view</h3>
   </div>
 );
 
-export default HomePage;
+export default PhotoBooth;

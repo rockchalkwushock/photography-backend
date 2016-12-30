@@ -36,7 +36,9 @@ export const loginUser = values => {
   };
 };
 
-export function logoutUser() {
+export const logoutUser = () => {
   localStorage.removeItem('token'); // eslint-disable-line
+  axios.defaults.headers.common['Authorization'] = ''; // eslint-disable-line
+  browserHistory.push('/');
   return { type: LOGOUT_USER };
-}
+};

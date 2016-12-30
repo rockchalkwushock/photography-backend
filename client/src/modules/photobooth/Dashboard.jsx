@@ -10,10 +10,11 @@ const styles = {
   }
 };
 
-const HomePage = () => (
-  <div className='homepage' style={styles.root}>
-    <h1>YOU ARE ON THE HOMEPAGE</h1>
+const Dashboard = () => (
+  <div className='dashboard' style={styles.root}>
+    <h1>YOU ARE ON THE DASHBOARD PAGE</h1>
+    <h3>This is an auth protected view</h3>
   </div>
 );
 
-export default HomePage;
+export default Dashboard;

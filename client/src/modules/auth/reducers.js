@@ -2,10 +2,9 @@ import { handle } from 'redux-pack';
 import { LOGIN_USER, LOGOUT_USER, SIGNUP_USER } from './types';
 
 const initialState = {
-  isLoading: false,
-  authError: null,
   authenticated: false,
-  message: ''
+  authError: null,
+  isLoading: false
 };
 
 export default (state = initialState, action) => {
@@ -15,7 +14,8 @@ export default (state = initialState, action) => {
       return { ...state, authenticated: false };
     case LOGIN_USER:
     case SIGNUP_USER: return handle(state, action, {
-      start: s => ({ ...s, authError: null }),
+      start: s => ({ ...s, isLoading: true }),
+      finish: s => ({ ...s, isLoading: false }),
       failure: s => ({ ...s, authenticated: false, authError: payload }),
       success: s => ({ ...s, authenticated: true }),
     });

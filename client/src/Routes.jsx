@@ -1,40 +1,64 @@
 import React from 'react';
-import { Router, Route } from 'react-router';
+import { IndexRoute, Route, Router } from 'react-router';
+import { UserAuthWrapper } from 'redux-auth-wrapper';
+import { routerActions } from 'react-router-redux';
 import { history } from './redux/store';
 
 import App from './App';
-import { LoginContainer, Page404, SignupContainer } from './modules';
-
-export default () => (
-  <Router history={history}>
-    <Route path='/' component={App}>
-      <Route path='/signup' component={SignupContainer} />
-      <Route path='/login' component={LoginContainer} />
-    </Route>
-    <Route path='*' component={Page404} />
-  </Router>
-);
+import { Loading } from './commons';
+import {
+  Dashboard,
+  HomePage,
+  LoginContainer,
+  Page404,
+  PhotoBooth,
+  SignupContainer
+} from './modules';
 
 
 /*
- TODO:
- Setup Routes:
- Need a HomePage route '/'.
-   - this route will be the landing page for the actual application.
-   - this will be what the logo in Navbar pushes too.
-   - this will be what the Page404 button pushes too.
- Need to have an Signup route '/admin/signup'.
-   NOTE: This temporary and will be replaced with the LoginContainer.
-         Will become '/admin/login' later.
- Need to have a Admin route '/admin'.
-   NOTE: This will be an authRoute wrapped in the HOC to check user auth.
-   - it will NOT be accessible without being authenticated against the API.
- Need to have a Cloudinary route for viewing '/admin/library'.
-   - it will house a component for viewing what is available in the cloud.
-   - the collections should be clickable.
- Need to have a Cloudinary route for uploading '/admin/photo-booth'.
-   - it will house the component with the Cloudinary Widget.
-   - it should allow for uploading to the Cloudinary API via the Widget.
-   - it should receive back the corresponding url(s) for the image(s) uploaded.
-   - Will need to dispatch these url(s) from Redux to the API server for storage in the database.
+  Redux-Auth-Wrapper
+
 */
+// Redirects to /login by default
+const UserIsAuthenticated = UserAuthWrapper({
+  authSelector: state => state.auth, // how to get the user state
+  authenticatingSelector: state => state.auth.isLoading,
+  LoadingComponent: Loading,
+  redirectAction: routerActions.replace, // the redux action to dispatch for redirect
+  wrapperDisplayName: 'UserIsAuthenticated' // a nice name for this auth check
+});
+
+const VisibleOnlyNoUser = UserAuthWrapper({
+  authSelector: state => state.auth,
+  LoadingComponent: Loading,
+  wrapperDisplayName: 'VisibleOnlyIfNotUser',
+  predicate: auth => !auth.authenticated,
+  failureRedirectPath: '/'
+});
+
+const AuthView = UserIsAuthenticated(({ children }) => children);
+const NonAuthView = VisibleOnlyNoUser(({ children }) => children);
+
+export default () => (
+  <Router history={history}>
+    {/* App has 2 children */}
+    <Route path='/' component={App}>
+    {/* Anyone can visit these routes. */}
+      <Route component={NonAuthView}>
+        <IndexRoute component={HomePage} />
+        <Route path='/signup' component={SignupContainer} />
+        <Route path='/login' component={LoginContainer} />
+      </Route>
+    {/* Only Authenticated Users may visit these routes. */}
+      <Route component={AuthView}>
+        <Route path='/admin'>
+          <IndexRoute component={Dashboard} />
+          <Route path='/photo-booth' component={PhotoBooth} />
+        </Route>
+      </Route>
+    </Route>
+    {/* Reachable by any route Auth or Non-Auth */}
+    <Route path='*' component={Page404} />
+  </Router>
+);
