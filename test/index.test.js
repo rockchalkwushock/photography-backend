@@ -40,6 +40,22 @@ describe('API Tests', () => {
       })
       .catch(err => done(err));
   });
+  it('expects a current JWT', (done) => {
+    request(server)
+      .post('/api/v1/checkToken')
+      .send({ token })
+      .then(res => {
+        const { message, success, user } = res.body;
+        expect(res.statusCode).to.equal(201);
+        expect(success).to.equal(true);
+        expect(message).to.equal('JWT Refreshed.');
+        expect(token).to.be.a('string');
+        expect(token).to.contain('JWT');
+        expect(user).to.be.a('object');
+        done();
+      })
+      .catch((err) => done(err));
+  });
   it('expects authenticated user for access', (done) => {
     request(server)
       .get('/api/v1/admin')
