@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import { Navbar } from './modules';
+import './helpers/axiosConfigs';
 
 const App = ({ children, location }) => (
   <div className="application">
