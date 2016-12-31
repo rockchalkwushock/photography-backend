@@ -24,6 +24,58 @@ describe('API Tests', () => {
       })
       .catch(err => done(err));
   });
+  it('expects a 422 if no email is provided', (done) => {
+    request(server)
+      .post('/api/v1/signup')
+      .send({ email: '', password: '123' })
+      .then(res => {
+        const { message, success } = res.body;
+        expect(res.statusCode).to.equal(422);
+        expect(success).to.equal(false);
+        expect(message).to.equal('Email is required!');
+        done();
+      })
+      .catch(err => done(err));
+  });
+  it('expects a 422 if no password is provided', (done) => {
+    request(server)
+      .post('/api/v1/signup')
+      .send({ email: 'tony@gmail.com', password: '' })
+      .then(res => {
+        const { message, success } = res.body;
+        expect(res.statusCode).to.equal(422);
+        expect(success).to.equal(false);
+        expect(message).to.equal('Password is required!');
+        done();
+      })
+      .catch(err => done(err));
+  });
+  it('expects a 422 if invalid email is provided', (done) => {
+    request(server)
+      .post('/api/v1/signup')
+      .send({ email: 'yankeedoodle', password: '123' })
+      .then(res => {
+        const { message, success } = res.body;
+        expect(res.statusCode).to.equal(422);
+        expect(success).to.equal(false);
+        expect(message).to.equal('Email is not valid!');
+        done();
+      })
+      .catch(err => done(err));
+  });
+  it('expects a 422 if email provided is already in use', (done) => {
+    request(server)
+      .post('/api/v1/signup')
+      .send({ email: 'bill@gmail.com', password: '123' })
+      .then(res => {
+        const { message, success } = res.body;
+        expect(res.statusCode).to.equal(422);
+        expect(success).to.equal(false);
+        expect(message).to.equal('Email already used!');
+        done();
+      })
+      .catch(err => done(err));
+  });
   it('expects a JWT token to return on login', (done) => {
     request(server)
       .post('/api/v1/login')
@@ -56,6 +108,46 @@ describe('API Tests', () => {
       })
       .catch((err) => done(err));
   });
+  it('expects a 401 if no JWT present', (done) => {
+    request(server)
+      .post('/api/v1/checkToken')
+      .send({ token: '' })
+      .then(res => {
+        const { message, success } = res.body;
+        expect(res.statusCode).to.equal(401);
+        expect(success).to.equal(false);
+        expect(message).to.equal('Must have JWT.');
+        done();
+      })
+      .catch((err) => done(err));
+  });
+  it('expects a 422 if JWT cannot be verified', (done) => {
+    request(server)
+      .post('/api/v1/checkToken')
+      .send({ token: 'JWT' })
+      .then(res => {
+        const { message, success } = res.body;
+        expect(res.statusCode).to.equal(422);
+        expect(success).to.equal(false);
+        expect(message).to.equal('JWT Verification Issue.');
+        done();
+      })
+      .catch((err) => done(err));
+  });
+  it('expects a 401 if decode does not return a valid user', (done) => {
+    const faultyToken = 'JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ODY3ZTMzMTc1NmE0ZDFiYzkyZWVmNzEiLCJpYXQiOjE0ODMyMDMzNzgsImV4cCI6MTQ4MzIwNjk3OH0.tWupPEW8u66Bdxtn_LSMUuhDUUx4WHsfxudFjJyfKxU'; // eslint-disable-line
+    request(server)
+      .post('/api/v1/checkToken')
+      .send({ token: faultyToken })
+      .then(res => {
+        const { message, success } = res.body;
+        expect(res.statusCode).to.equal(401);
+        expect(success).to.equal(false);
+        expect(message).to.equal('JWT Refresh Issue.');
+        done();
+      })
+      .catch((err) => done(err));
+  });
   it('expects authenticated user for access', (done) => {
     request(server)
       .get('/api/v1/admin')
@@ -70,6 +162,7 @@ describe('API Tests', () => {
       })
       .catch(err => done(err));
   });
+
   after((done) => {
     const { users } = mongoose.connection.collections;
     users.drop(done);
