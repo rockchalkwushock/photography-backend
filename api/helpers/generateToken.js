@@ -1,10 +1,9 @@
-import jwt from 'jwt-simple';
+import jwt from 'jsonwebtoken';
 import '../config/envConfig';
 
 const secret = process.env.JWT_SECRET;
 
 // CREATE JWT TOKEN FOR USER
-export const generateToken = user => {
-  const timestamp = new Date().getTime();
-  return jwt.encode({ sub: user.id, iat: timestamp }, secret);
-};
+export const generateToken = user => jwt.sign({
+  sub: user.id }, secret, { expiresIn: '1h' }
+);
