@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
-import { checkToken } from './modules/auth/actions';
+import { checkToken, logoutUser } from './modules/auth/actions';
 import './helpers/axiosConfigs';
-import App from './App';
+import { App } from './modules';
 
 const mapStateToProps = state => (
   { auth: state.auth }
@@ -9,5 +9,5 @@ const mapStateToProps = state => (
 
 export default connect(
   mapStateToProps,
-  { checkToken }
+  { checkToken, logoutUser }
 )(App);

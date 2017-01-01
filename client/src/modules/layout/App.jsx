@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import axios from 'axios';
-import { Navbar } from './modules';
+import Navbar from './Navbar';
 
 class App extends Component {
   componentWillMount() {
@@ -9,12 +9,16 @@ class App extends Component {
     }
   }
   render() {
-    const { auth, children, location } = this.props;
+    const { auth, children, location, logoutUser } = this.props;
     const { user, token } = auth;
     if (user) axios.defaults.headers.common['Authorization'] = token; // eslint-disable-line
     return (
       <div className="application">
-        <Navbar path={location.pathname} />
+        <Navbar
+          auth={user}
+          logout={logoutUser}
+          path={location.pathname}
+        />
         {children}
       </div>
     );
@@ -22,6 +26,7 @@ class App extends Component {
 }
 
 App.propTypes = {
+  auth: PropTypes.object.isRequired,
   children: PropTypes.element.isRequired,
   location: PropTypes.object.isRequired
 };
