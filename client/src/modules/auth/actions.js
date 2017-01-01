@@ -1,44 +1,31 @@
-import axios from 'axios';
-import { browserHistory } from 'react-router';
-import { LOGIN_USER, LOGOUT_USER, SIGNUP_USER } from './types';
+import { CHECK_TOKEN, LOGIN_USER, LOGOUT_USER, SIGNUP_USER } from './types';
+import { authenticateUser, createAuthUser, unAuthUser } from './apiMethods';
 
 export const signupUser = values => {
   const { email, password } = values;
-
+  console.log(email, password);
   return {
     type: SIGNUP_USER,
-    promise: axios.post('/api/v1/signup', { email, password })
-     .then(res => {
-       localStorage.setItem('token', res.data.token); // eslint-disable-line
-       axios.defaults.headers.common['Authorization'] = res.data.token; // eslint-disable-line
-       browserHistory.push('/admin');
-     }),
-    meta: {
-      onFailure: err => console.log(err),
-    }
+    promise: createAuthUser(email, password)
   };
 };
 
 export const loginUser = values => {
   const { email, password } = values;
-
   return {
     type: LOGIN_USER,
-    promise: axios.post('/api/v1/login', { email, password })
-      .then(res => {
-        localStorage.setItem('token', res.data.token); // eslint-disable-line
-        axios.defaults.headers.common['Authorization'] = res.data.token; // eslint-disable-line
-        browserHistory.push('/admin');
-      }),
-    meta: {
-      onFailure: err => console.log(err),
-    }
+    promise: authenticateUser(email, password)
   };
 };
 
 export const logoutUser = () => {
-  localStorage.removeItem('token'); // eslint-disable-line
-  axios.defaults.headers.common['Authorization'] = ''; // eslint-disable-line
-  browserHistory.push('/');
+  unAuthUser();
   return { type: LOGOUT_USER };
+};
+
+export const checkToken = () => {
+  return {
+    type: CHECK_TOKEN,
+    promise: 'function that returns promise.'
+  };
 };

@@ -22,7 +22,7 @@ import {
 */
 // Redirects to /login by default
 const UserIsAuthenticated = UserAuthWrapper({
-  authSelector: state => state.auth, // how to get the user state
+  authSelector: state => state.auth.user, // how to get the user state
   authenticatingSelector: state => state.auth.isLoading,
   LoadingComponent: Loading,
   redirectAction: routerActions.replace, // the redux action to dispatch for redirect
@@ -30,10 +30,10 @@ const UserIsAuthenticated = UserAuthWrapper({
 });
 
 const VisibleOnlyNoUser = UserAuthWrapper({
-  authSelector: state => state.auth,
+  authSelector: state => state.auth.user,
   LoadingComponent: Loading,
   wrapperDisplayName: 'VisibleOnlyIfNotUser',
-  predicate: auth => !auth.authenticated,
+  predicate: user => !user,
   failureRedirectPath: '/'
 });
 
