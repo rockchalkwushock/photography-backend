@@ -4,7 +4,7 @@ import { UserAuthWrapper } from 'redux-auth-wrapper';
 import { routerActions } from 'react-router-redux';
 import { history } from './redux/store';
 
-import App from './App';
+import AppContainer from './AppContainer';
 import { Loading } from './commons';
 import {
   Dashboard,
@@ -43,7 +43,7 @@ const NonAuthView = VisibleOnlyNoUser(({ children }) => children);
 export default () => (
   <Router history={history}>
     {/* App has 2 children */}
-    <Route path='/' component={App}>
+    <Route path='/' component={AppContainer}>
     {/* Anyone can visit these routes. */}
       <Route component={NonAuthView}>
         <IndexRoute component={HomePage} />
