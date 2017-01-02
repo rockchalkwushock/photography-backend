@@ -30,7 +30,7 @@ const Navbar = ({ auth, logout, path }) => (
   );
 
 Navbar.propTypes = {
-  auth: PropTypes.object.isRequired,
+  auth: PropTypes.object,
   logout: PropTypes.func.isRequired,
   path: PropTypes.string.isRequired
 };
