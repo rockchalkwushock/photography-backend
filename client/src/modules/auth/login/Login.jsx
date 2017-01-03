@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { Button, Form, Grid, Message } from 'semantic-ui-react';
 import { InputField } from '../../../commons';
@@ -6,7 +6,7 @@ import { loginValidation } from './validate';
 
 const styles = {
   root: {
-
+    position: 'relative'
   },
 };
 
@@ -48,6 +48,12 @@ const Login = ({ handleSubmit, loginUser, valid }) => (
     </Grid>
   </div>
 );
+
+Login.propTypes = {
+  handleSubmit: PropTypes.func.isRequired,
+  loginUser: PropTypes.func.isRequired,
+  valid: PropTypes.bool.isRequired
+};
 
 export default reduxForm({
   form: 'login',
