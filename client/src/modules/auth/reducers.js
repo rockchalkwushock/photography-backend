@@ -1,5 +1,5 @@
 import { handle } from 'redux-pack';
-import { LOGIN_USER, LOGOUT_USER, SIGNUP_USER } from './types';
+import { CHECK_TOKEN, LOGIN_USER, LOGOUT_USER, SIGNUP_USER } from './types';
 
 const initialState = {
   error: false,
@@ -10,16 +10,15 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
-  console.log(action);
   const { payload, type } = action;
   switch (type) {
-    // case CHECK_TOKEN:
-    // return handle(state, action, {
-    //   start: s => ({ ...s, isLoading: true }),
-    //   finish: s => ({ ...s, isLoading: false }),
-    //   failure: s => ({ ...s, initialState }),
-    //   success: s => ({ ...s, token: payload.token, user: payload.user }),
-    // });
+    case CHECK_TOKEN:
+    return handle(state, action, {
+      start: s => ({ ...s, isLoading: true }),
+      finish: s => ({ ...s, isLoading: false }),
+      failure: s => ({ ...s, initialState }),
+      success: s => ({ ...s, token: payload.token, user: payload.user }),
+    });
     case LOGIN_USER:
     case SIGNUP_USER:
     return handle(state, action, {
