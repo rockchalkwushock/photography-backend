@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "axios": "^0.15.3",
+    "cloudinary": "^1.5.0",
     "lodash": "^4.17.3",
     "rc-progress": "^2.0.3",
     "react": "^15.4.1",
