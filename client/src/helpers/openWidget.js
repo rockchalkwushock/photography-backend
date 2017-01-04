@@ -1,4 +1,5 @@
 import './cloudinary';
+import { getCloudinaryData } from '../modules';
 
 // My Cloudinary presets.
 const cloudinaryOptions = {
@@ -10,7 +11,9 @@ const cloudinaryOptions = {
 // (unless I implement it to do so onClose of widget)
 // error = null if success, error message if error.
 // reulst = [of photos uploaded]
-const callback = (error, result) => console.log(error, result);
+const callback = (error, result) => {
+  getCloudinaryData(result);
+};
 
 // Function for opening the widet onClick event with button.
 export const openWidget = () => {

@@ -1,4 +1,5 @@
-import Dashboard from './Dashboard';
-import PhotoBooth from './PhotoBooth';
+import Dashboard from './interface/Dashboard';
+import photoReducer from './reducers';
+import { getCloudinaryData } from './actions';
 
-export { Dashboard, PhotoBooth };
+export { getCloudinaryData, Dashboard, photoReducer };

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from 'semantic-ui-react';
-import { openWidget } from '../../helpers/openWidget';
+import { openWidget } from '../../../helpers/openWidget';
 
 const styles = {
   root: {

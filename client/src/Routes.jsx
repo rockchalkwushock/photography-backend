@@ -11,7 +11,6 @@ import {
   HomePage,
   LoginContainer,
   Page404,
-  PhotoBooth,
   SignupContainer
 } from './modules';
 
@@ -54,7 +53,6 @@ export default () => (
       <Route component={AuthView}>
         <Route path='/admin'>
           <IndexRoute component={Dashboard} />
-          <Route path='/photo-booth' component={PhotoBooth} />
         </Route>
       </Route>
     </Route>

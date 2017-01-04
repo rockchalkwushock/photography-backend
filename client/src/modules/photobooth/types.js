@@ -1,0 +1,1 @@
+export const CLOUDINARY_DATA = 'CLOUDINARY_DATA';
