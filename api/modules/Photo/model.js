@@ -5,7 +5,8 @@ import mongoose, { Schema } from 'mongoose';
 const photoSchema = new Schema({
   createdAt: Date,
   public_id: {
-    type: String
+    type: String,
+    lowercase: true
   },
   url: String
 });
