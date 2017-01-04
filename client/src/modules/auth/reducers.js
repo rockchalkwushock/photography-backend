@@ -16,7 +16,7 @@ export default (state = initialState, action) => {
     return handle(state, action, {
       start: s => ({ ...s, isLoading: true }),
       finish: s => ({ ...s, isLoading: false }),
-      failure: s => ({ ...s, initialState }),
+      failure: () => initialState, // NOTE: I believe there is a better way of doing this.
       success: s => ({ ...s, token: payload.token, user: payload.user }),
     });
     case LOGIN_USER:

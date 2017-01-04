@@ -31,18 +31,19 @@ export const authenticateUser = (email, password) => {
   });
   return promise;
 };
-/*
-  TODO:
-  Fails if JWT becomes expired.
-  It seems like res.data becomes undefined or is not what it should be.
-  Promise being returned becomes undefined and reducer breaks.
-*/
+
 export const verifyToken = token => {
-  const promise = new Promise(resolve => {
+  const promise = new Promise((resolve, reject) => {
     axios.post('/checkToken', { token })
       .then(res => {
-      resolve(res.data);
-    });
+      resolve(res.data); // return's promise with refreshed token & user.
+      })
+      .catch(err => {
+        const { expireTime } = err.response.data;
+        if (expireTime) {
+          reject();
+        }
+      });
   });
   return promise;
 };
