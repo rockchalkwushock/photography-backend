@@ -12,7 +12,6 @@ const cloudinaryOptions = {
 // error = null if success, error message if error.
 // result = [of photos uploaded]
 const callback = (error, result) => {
-  console.log(result);
   getCloudinaryData(result);
 };
 

@@ -9,6 +9,7 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
+  console.log(action);
   const { payload, type } = action;
   switch (type) {
     case CLOUDINARY_DATA:
