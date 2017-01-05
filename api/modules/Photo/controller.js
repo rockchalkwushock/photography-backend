@@ -34,7 +34,7 @@ export const getPublicID = (req, res) => {
 export const sendToFrontEnd = (req, res) => {
   /* TODO: request from front-end should ask for:
       1) All images.
-      2) Active images.
+      2) Active images. TODO: Set up prop in Redux/Model for active state.
       3) Images in order:
         a) Newest to Oldest
         b) Oldest to Newest
@@ -43,7 +43,7 @@ export const sendToFrontEnd = (req, res) => {
   Photo.find()
     .then(
       img => res.status(201).json({ success: true, payload: img }),
-      err => res.status(500).json({ message: err })
+      err => res.status(500).json({ success: false, message: err })
     );
     console.timeEnd('ARRAY');
 };
