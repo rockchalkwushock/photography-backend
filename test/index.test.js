@@ -1,6 +1,9 @@
 import mongoose from 'mongoose';
+// import _ from 'lodash';
+// import faker from 'faker';
 import { expect } from 'chai';
 import request from 'supertest';
+// import Photo from '../api/modules';
 import { server } from '../api'; // server = http:localhost:8000
 
 expect();
@@ -163,7 +166,27 @@ describe('API Tests', () => {
       })
       .catch(err => done(err));
   });
-
+  it('expects an array of objects upon front-end request', (done) => {
+    request(server)
+      .get('/api/v1/library')
+      .set('Authorization', token)
+      .then(
+        res => {
+          const { payload, success } = res.body;
+          expect(res.statusCode).to.equal(201);
+          expect(success).to.equal(true);
+          expect(payload).to.be.a('array');
+          done();
+        },
+        err => {
+          const { message, success } = err.res.body;
+          expect(err.res.statusCode).to.equal(500);
+          expect(success).to.equal(false);
+          expect(message).to.equal(err);
+          done();
+        }
+      );
+  });
   after((done) => {
     const { users } = mongoose.connection.collections;
     users.drop(done);
