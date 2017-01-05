@@ -1,8 +1,9 @@
 import axios from 'axios';
 
 export const sendToBackEnd = result => {
+  console.log(result);
   const promise = new Promise((resolve, reject) => {
-    axios.post('/library', result)
+    axios.post('/library', { result })
       .then(res => {
         console.log(res);
         resolve(res);

@@ -10,8 +10,9 @@ const cloudinaryOptions = {
 // callback will fire when upload is complete.
 // (unless I implement it to do so onClose of widget)
 // error = null if success, error message if error.
-// reulst = [of photos uploaded]
+// result = [of photos uploaded]
 const callback = (error, result) => {
+  console.log(result);
   getCloudinaryData(result);
 };
 

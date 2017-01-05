@@ -4,7 +4,7 @@ import bodyParser from 'body-parser';
 import morgan from 'morgan';
 import cors from 'cors';
 import passport from 'passport';
-import { userRoutes } from './modules';
+import { photoRoutes, userRoutes } from './modules';
 
 // Configurations
 import './config/envConfig';
@@ -35,7 +35,7 @@ app.use(cors());
 app.use(passport.initialize());
 
 // Routing
-app.use('/api/v1', [userRoutes]);
+app.use('/api/v1', [photoRoutes, userRoutes]);
 
 // Express Server
 export const server = Server(app);
