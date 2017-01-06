@@ -1,5 +1,5 @@
 import './cloudinary';
-import { getCloudinaryData } from '../modules';
+import { catchResults } from './catchResults';
 
 // My Cloudinary presets.
 const cloudinaryOptions = {
@@ -12,7 +12,7 @@ const cloudinaryOptions = {
 // error = null if success, error message if error.
 // result = [of photos uploaded]
 const callback = (error, result) => {
-  getCloudinaryData(result);
+  catchResults(result);
 };
 
 // Function for opening the widet onClick event with button.
