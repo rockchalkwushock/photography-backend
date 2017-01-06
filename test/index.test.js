@@ -3,13 +3,24 @@ import mongoose from 'mongoose';
 // import faker from 'faker';
 import { expect } from 'chai';
 import request from 'supertest';
-// import Photo from '../api/modules';
+import { Photo } from '../api/modules';
 import { server } from '../api'; // server = http:localhost:8000
 
 expect();
 
 describe('API Tests', () => {
+  let collection;
   let token;
+  before((done) => {
+    collection = [];
+    const img = new Photo({
+      public_id: 'a1b2c3d45e',
+      thumbnail_url: 'http://mycustomthumbnailurl.com/thumbnailhere',
+      url: 'http://image.com/yourimageishere'
+    });
+    collection.push(img);
+    done();
+  });
   it('expects a JWT token to return on signup', (done) => {
     request(server)
       .post('/api/v1/signup')
@@ -168,7 +179,7 @@ describe('API Tests', () => {
   });
   it('expects an array of objects upon front-end request', (done) => {
     request(server)
-      .get('/api/v1/library')
+      .get('/api/v1/library', { collection })
       .set('Authorization', token)
       .then(
         res => {
@@ -187,8 +198,35 @@ describe('API Tests', () => {
         }
       );
   });
+  it('expects an array of objects from the front-end', (done) => {
+    request(server)
+      .post('/api/v1/library')
+      .set('Authorization', token)
+      .send({ result: [{}] })
+      .then(
+        res => {
+          const { cloudinary, message, success } = res.body;
+          expect(res.statusCode).to.equal(201);
+          expect(success).to.equal(true);
+          expect(message).to.equal('Successfully added to database.');
+          expect(cloudinary).to.be.a('array');
+          done();
+        },
+        err => {
+          const { message, success } = err.res.body;
+          expect(err.res.statusCode).to.equal(500);
+          expect(success).to.equal(false);
+          expect(message).to.equal(err);
+          done();
+        }
+      );
+  });
   after((done) => {
-    const { users } = mongoose.connection.collections;
-    users.drop(done);
+    const { photos, users } = mongoose.connection.collections;
+    photos.drop(() => {
+      users.drop(() => {
+        done();
+      });
+    });
   });
 });
