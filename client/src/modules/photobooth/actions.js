@@ -5,7 +5,7 @@ import { sendToBackEnd } from './apiMethods';
   NOTE: Use onFailure() & onSuccess for rendering message to user.
 */
 
-export const getCloudinaryData = result => (
+export const getCloudinaryData = (error, result) => (
   {
     type: CLOUDINARY_DATA,
     promise: sendToBackEnd(result),
