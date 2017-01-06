@@ -12,7 +12,6 @@ const styles = {
     backgroundColor: '#FFF',
     fontSize: '1em'
   }
-
 };
 
 const Navbar = ({ auth, logout, path }) => (
