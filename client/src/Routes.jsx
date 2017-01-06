@@ -7,7 +7,7 @@ import { history } from './redux/store';
 import AppContainer from './AppContainer';
 import { Loading } from './commons';
 import {
-  Dashboard,
+  DashboardContainer,
   HomePage,
   LoginContainer,
   Page404,
@@ -52,7 +52,7 @@ export default () => (
     {/* Only Authenticated Users may visit these routes. */}
       <Route component={AuthView}>
         <Route path='/admin'>
-          <IndexRoute component={Dashboard} />
+          <IndexRoute component={DashboardContainer} />
         </Route>
       </Route>
     </Route>

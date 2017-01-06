@@ -1,5 +1,4 @@
 import './cloudinary';
-import { catchResults } from './catchResults';
 
 // My Cloudinary presets.
 const cloudinaryOptions = {
@@ -11,12 +10,11 @@ const cloudinaryOptions = {
 // (unless I implement it to do so onClose of widget)
 // error = null if success, error message if error.
 // result = [of photos uploaded]
-const callback = (error, result) => {
-  catchResults(result);
-};
+// const callback = (error, result) => result;
 
 // Function for opening the widet onClick event with button.
-export const openWidget = () => {
+export const openWidget = (callback) => {
   // takes options={}, callback()
+  console.log(callback);
   cloudinary.openUploadWidget(cloudinaryOptions, callback); // eslint-disable-line
 };
