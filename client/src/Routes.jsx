@@ -2,10 +2,10 @@ import React from 'react';
 import { IndexRoute, Route, Router } from 'react-router';
 import { UserAuthWrapper } from 'redux-auth-wrapper';
 import { routerActions } from 'react-router-redux';
+import Loading from 'react-loading';
 import { history } from './redux/store';
 
 import AppContainer from './AppContainer';
-import { Loading } from './commons';
 import {
   DashboardContainer,
   HomePage,
@@ -21,7 +21,7 @@ import {
 */
 // Redirects to /login by default
 const UserIsAuthenticated = UserAuthWrapper({
-  authSelector: state => state.auth.user, // how to get the user state
+  authSelector: state => state.auth, // how to get the user state
   authenticatingSelector: state => state.auth.isLoading,
   LoadingComponent: Loading,
   redirectAction: routerActions.replace, // the redux action to dispatch for redirect
@@ -29,10 +29,10 @@ const UserIsAuthenticated = UserAuthWrapper({
 });
 
 const VisibleOnlyNoUser = UserAuthWrapper({
-  authSelector: state => state.auth.user,
+  authSelector: state => state.auth,
   LoadingComponent: Loading,
   wrapperDisplayName: 'VisibleOnlyIfNotUser',
-  predicate: user => !user,
+  predicate: auth => !auth.authenticated,
   failureRedirectPath: '/'
 });
 
