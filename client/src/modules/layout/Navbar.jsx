@@ -2,14 +2,35 @@ import React, { PropTypes } from 'react';
 import { browserHistory } from 'react-router';
 import { Menu } from 'semantic-ui-react';
 
+const styles = {
+  root: {
+    auth: {
+      backgroundColor: '#E77878',
+      fontStyle: 'italic',
+      fontWeight: 'bold'
+    },
+    backgroundColor: '#FFF',
+    fontSize: '1em'
+  }
+
+};
 
 const Navbar = ({ auth, logout, path }) => (
-    <Menu>
+    <Menu style={auth ? styles.root.auth : styles.root}>
+      {!auth ? (
         <Menu.Menu>
           <Menu.Item onClick={() => browserHistory.push(auth ? '/admin' : '/')}>
             MashaEltsovaPhotography
           </Menu.Item>
         </Menu.Menu>
+      ) : (
+        <Menu.Menu>
+          <Menu.Item onClick={() => browserHistory.push(auth ? '/admin' : '/')}>
+            MashaEltsovaPhotography
+          </Menu.Item>
+        </Menu.Menu>
+      )}
+
         {!auth ? (
           <Menu.Menu position='right'>
             <Menu.Item active={path === '/signup'} onClick={() => browserHistory.push('/signup')}>
