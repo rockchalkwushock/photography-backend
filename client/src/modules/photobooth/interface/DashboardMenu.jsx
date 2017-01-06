@@ -9,7 +9,7 @@ class DashboardMenu extends Component {
 
   render() {
     const { activeItem } = this.state;
-    const { getData } = this.props;
+    const { getCloud } = this.props;
     return (
       <div>
         <Menu pointing>
@@ -27,7 +27,7 @@ class DashboardMenu extends Component {
             <Menu.Item>
               <Button
                 inverted color='green'
-                onClick={() => openWidget(getData)}
+                onClick={() => openWidget(getCloud)}
               >
                 Upload Images Here
               </Button>
@@ -50,7 +50,8 @@ class DashboardMenu extends Component {
 }
 
 DashboardMenu.propTypes = {
-  getData: PropTypes.func.isRequired
+  getCloud: PropTypes.func.isRequired,
+  getDB: PropTypes.func.isRequired
 };
 
 export default DashboardMenu;

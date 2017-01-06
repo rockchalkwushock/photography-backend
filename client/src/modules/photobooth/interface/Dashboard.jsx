@@ -13,9 +13,9 @@ import Library from './Library';
 //   }
 // };
 
-const Dashboard = ({ cloudinary, getCloudinaryData }) => (
+const Dashboard = ({ cloudinary, getFromBackEnd, getCloudinaryData }) => (
   <div className='dashboard'>
-    <DashboardMenu getData={getCloudinaryData} />
+    <DashboardMenu getCloud={getCloudinaryData} getDB={getFromBackEnd} />
     {!cloudinary ? (
       <div className="loader">
         <Loading type='bubbles' color='blue' />
