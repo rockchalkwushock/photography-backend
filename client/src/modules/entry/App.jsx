@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import axios from 'axios';
-import Navbar from './Navbar';
+import { Navbar } from '../layout';
 
 class App extends Component {
   componentWillMount() {

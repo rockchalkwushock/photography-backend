@@ -1,5 +1,5 @@
 import { handle } from 'redux-pack';
-import { CLOUDINARY_DATA } from './types';
+import { CLOUDINARY_DATA, DATABASE_IMAGES } from './types';
 
 const initialState = {
   error: false,
@@ -13,6 +13,17 @@ export default (state = initialState, action) => {
   const { payload, type } = action;
   switch (type) {
     case CLOUDINARY_DATA:
+      return handle(state, action, {
+        start: s => ({ ...s, isLoading: true }),
+        finish: s => ({ ...s, isLoading: false }),
+        failure: s => ({ ...s, error: true, message: payload.message }),
+        success: s => ({
+          ...s,
+          message: payload.message,
+          cloudinary: payload
+        }),
+      });
+    case DATABASE_IMAGES:
       return handle(state, action, {
         start: s => ({ ...s, isLoading: true }),
         finish: s => ({ ...s, isLoading: false }),

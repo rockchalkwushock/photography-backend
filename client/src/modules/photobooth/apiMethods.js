@@ -5,9 +5,21 @@ export const sendToBackEnd = result => {
   const promise = new Promise((resolve, reject) => {
     axios.post('/library', { result })
       .then(
+        res => resolve(res.data.cloudinary),
+        err => reject(err)
+      );
+  });
+  console.log(promise);
+  return promise;
+};
+
+export const fetchFromBackEnd = () => {
+  const promise = new Promise((resolve, reject) => {
+    axios.get('/library')
+      .then(
         res => {
-          console.log(res.data.cloudinary);
-          resolve(res.data.cloudinary);
+          console.log(res.data.payload);
+          resolve(res.data.payload);
         },
         err => {
           console.log(err);

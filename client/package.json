@@ -9,9 +9,9 @@
   "dependencies": {
     "axios": "^0.15.3",
     "lodash": "^4.17.3",
-    "rc-progress": "^2.0.3",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
+    "react-loading": "^0.0.9",
     "react-redux": "^5.0.1",
     "react-router": "^3.0.0",
     "react-router-redux": "^4.0.7",
