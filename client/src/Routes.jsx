@@ -5,8 +5,8 @@ import { routerActions } from 'react-router-redux';
 import Loading from 'react-loading';
 import { history } from './redux/store';
 
-import AppContainer from './AppContainer';
 import {
+  AppContainer,
   DashboardContainer,
   HomePage,
   LoginContainer,
