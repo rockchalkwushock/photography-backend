@@ -3,19 +3,12 @@ import Loading from 'react-loading';
 import { Card } from 'semantic-ui-react';
 
 class Library extends Component {
+  // When component mounts should call GET
+  // to DB for all pics.
+  // If DB is empty need to handle with message.
   componentWillMount() {
-    // When component mounts should call GET
-    // to DB for all pics.
-    // If DB is empty need to handle with message.
-    console.log('cwm');
     this.props.getDB();
   }
-  // componentWillUpdate() {
-  //   // Upon successful upload
-  //   // should GET from DB again.
-  //   console.log('cwu');
-  //   this.props.getDB();
-  // }
   render() {
     const { pics } = this.props;
     console.log(pics);
