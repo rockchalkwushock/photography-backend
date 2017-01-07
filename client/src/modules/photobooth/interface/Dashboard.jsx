@@ -1,21 +1,19 @@
 import React, { PropTypes } from 'react';
-import DashboardMenu from './DashboardMenu';
-import Library from './Library';
+import Sidebar from './Sidebar';
 
-// const styles = {
-//   root: {
-//     display: 'flex',
-//     justifyContent: 'space-around',
-//     alignItems: 'center',
-//     height: '80vh',
-//     flexDirection: 'column'
-//   }
-// };
+const styles = {
+  root: {
+    maxHeight: '100%'
+  }
+};
 
  const Dashboard = ({ cloudinary, getFromBackEnd, getCloudinaryData }) => (
-    <div className='dashboard'>
-     <DashboardMenu getCloud={getCloudinaryData} />
-     <Library getDB={getFromBackEnd} pics={cloudinary} />
+    <div className='dashboard' style={styles.root}>
+     <Sidebar
+        getCloud={getCloudinaryData}
+        getDB={getFromBackEnd}
+        pics={cloudinary}
+     />
    </div>
  );
 
