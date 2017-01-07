@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import Loading from 'react-loading';
-import { Card } from 'semantic-ui-react';
+import { Image } from 'semantic-ui-react';
 
 class Library extends Component {
   // When component mounts should call GET
@@ -13,21 +13,29 @@ class Library extends Component {
     const { pics } = this.props;
     console.log(pics);
     if (!pics) return <Loading />;
+    if (pics === []) {
+      return (
+        <div className="initial">
+          <h1>You have no images stored yet.</h1>
+          <h1>Please upload images to the cloud.</h1>
+        </div>
+      );
+    }
     const images = pics.reduce((array, item, index) => {
       const { url } = item;
       array.push(
-        <Card
+        <Image
           key={index}
-          raised image={url} // eslint-disable-line
+          src={url}
         />
       );
       return array;
     }, []);
     return (
       <div className="library">
-        <Card.Group itemsPerRow={6}>
+        <Image.Group size='small'>
           {images}
-        </Card.Group>
+        </Image.Group>
       </div>
     );
   }
