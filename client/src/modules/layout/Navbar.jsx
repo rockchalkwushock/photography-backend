@@ -5,7 +5,7 @@ import { Menu } from 'semantic-ui-react';
 const styles = {
   root: {
     auth: {
-      backgroundColor: '#E77878',
+      backgroundColor: '#2185D0',
       fontStyle: 'italic',
       fontWeight: 'bold'
     },
