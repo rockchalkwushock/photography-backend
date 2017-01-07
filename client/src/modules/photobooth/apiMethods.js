@@ -14,11 +14,17 @@ export const sendToBackEnd = result => {
 };
 
 export const fetchFromBackEnd = () => {
-  const promise = new Promise(() => {
+  const promise = new Promise((resolve, reject) => {
     axios.get('/library')
       .then(
-        res => console.log(res.data),
-        err => console.log(err)
+        res => {
+          console.log(res.data.payload);
+          resolve(res.data.payload);
+        },
+        err => {
+          console.log(err);
+          reject(err);
+        }
       );
   });
   console.log(promise);

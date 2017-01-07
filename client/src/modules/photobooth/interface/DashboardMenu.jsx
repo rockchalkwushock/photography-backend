@@ -50,8 +50,7 @@ class DashboardMenu extends Component {
 }
 
 DashboardMenu.propTypes = {
-  getCloud: PropTypes.func.isRequired,
-  getDB: PropTypes.func.isRequired
+  getCloud: PropTypes.func.isRequired
 };
 
 export default DashboardMenu;

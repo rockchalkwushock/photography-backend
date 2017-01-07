@@ -1,33 +1,47 @@
-import React, { PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
+import Loading from 'react-loading';
 import { Card } from 'semantic-ui-react';
 
-
-const Library = ({ pics }) => {
-  // iterate over pics array pulling out thumbnail_url
-  // and applying prop to a new Card.
-  // then push to new array images for rendering
-  // inside Card.Group.
-  const images = pics.reduce((array, item, index) => {
-    const { url } = item;
-    array.push(
-      <Card
-        key={index}
-        raised image={url} // eslint-disable-line
-      />
+class Library extends Component {
+  componentWillMount() {
+    // When component mounts should call GET
+    // to DB for all pics.
+    // If DB is empty need to handle with message.
+    console.log('cwm');
+    this.props.getDB();
+  }
+  // componentWillUpdate() {
+  //   // Upon successful upload
+  //   // should GET from DB again.
+  //   console.log('cwu');
+  //   this.props.getDB();
+  // }
+  render() {
+    const { pics } = this.props;
+    console.log(pics);
+    if (!pics) return <Loading />;
+    const images = pics.reduce((array, item, index) => {
+      const { url } = item;
+      array.push(
+        <Card
+          key={index}
+          raised image={url} // eslint-disable-line
+        />
+      );
+      return array;
+    }, []);
+    return (
+      <div className="library">
+        <Card.Group itemsPerRow={6}>
+          {images}
+        </Card.Group>
+      </div>
     );
-    return array;
-  }, []);
-  // render view to DOM.
-  return (
-    <div className="library">
-      <Card.Group itemsPerRow={6}>
-        {images}
-      </Card.Group>
-    </div>
-  );
-};
+  }
+}
 
 Library.propTypes = {
+  getDB: PropTypes.func.isRequired,
   pics: PropTypes.array
 };
 

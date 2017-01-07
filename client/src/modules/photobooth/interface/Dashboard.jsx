@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react';
-import Loading from 'react-loading';
 import DashboardMenu from './DashboardMenu';
 import Library from './Library';
 
@@ -13,22 +12,17 @@ import Library from './Library';
 //   }
 // };
 
-const Dashboard = ({ cloudinary, getFromBackEnd, getCloudinaryData }) => (
-  <div className='dashboard'>
-    <DashboardMenu getCloud={getCloudinaryData} getDB={getFromBackEnd} />
-    {!cloudinary ? (
-      <div className="loader">
-        <Loading type='bubbles' color='blue' />
-      </div>
-    ) : (
-      <Library pics={cloudinary} />
-    )}
-  </div>
-);
+ const Dashboard = ({ cloudinary, getFromBackEnd, getCloudinaryData }) => (
+    <div className='dashboard'>
+     <DashboardMenu getCloud={getCloudinaryData} />
+     <Library getDB={getFromBackEnd} pics={cloudinary} />
+   </div>
+ );
 
-Dashboard.propTypes = {
-  cloudinary: PropTypes.array,
-  getCloudinaryData: PropTypes.func.isRequired
-};
+ Dashboard.propTypes = {
+   cloudinary: PropTypes.array,
+   getCloudinaryData: PropTypes.func.isRequired,
+   getFromBackEnd: PropTypes.func.isRequired
+ };
 
-export default Dashboard;
+ export default Dashboard;
