@@ -27,8 +27,7 @@ export const loginUser = values => {
     promise: authenticateUser(email, password),
     meta: {
       onFailure: () => toastr.warning('Failure!', 'Log in failed!'),
-      onSuccess: () => toastr.success(
-        'Success!', 'You have been logged in!')
+      onSuccess: () => toastr.success('Success!', 'You have been logged in!')
     }
   };
 };
