@@ -1,7 +1,6 @@
 import axios from 'axios';
 
 export const sendToBackEnd = result => {
-  console.log(result);
   const promise = new Promise((resolve, reject) => {
     axios.post('/library', { result })
       .then(
@@ -9,7 +8,6 @@ export const sendToBackEnd = result => {
         err => reject(err)
       );
   });
-  console.log(promise);
   return promise;
 };
 

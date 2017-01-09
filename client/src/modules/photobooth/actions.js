@@ -2,10 +2,6 @@ import { toastr } from 'react-redux-toastr';
 import { CLOUDINARY_DATA, DATABASE_IMAGES } from './types';
 import { fetchFromBackEnd, sendToBackEnd } from './apiMethods';
 
-/*
-  NOTE: Use onFailure() & onSuccess for rendering message to user.
-*/
-
 export const getCloudinaryData = (error, result) => (
   {
     type: CLOUDINARY_DATA,

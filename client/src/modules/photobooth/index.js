@@ -1,4 +1,4 @@
-import DashboardContainer from './interface/DashboardContainer';
+import SidebarContainer from './sidebar/SidebarContainer';
 import photoReducer from './reducers';
 
-export { DashboardContainer, photoReducer };
+export { SidebarContainer, photoReducer };
