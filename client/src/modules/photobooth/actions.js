@@ -11,8 +11,8 @@ export const getCloudinaryData = (error, result) => (
     type: CLOUDINARY_DATA,
     promise: sendToBackEnd(result),
     meta: {
-      onFailure: () => toastr.warning('Failure!', 'Upload failed!'),
-      onSuccess: () => toastr.success('Success!', 'Upload Successful!')
+      onFailure: (res) => toastr.warning('Failure!', res.message),
+      onSuccess: (res) => toastr.success('Success!', res.message)
     }
   }
 );
@@ -20,6 +20,9 @@ export const getCloudinaryData = (error, result) => (
 export const getFromBackEnd = () => (
   {
     type: DATABASE_IMAGES,
-    promise: fetchFromBackEnd()
+    promise: fetchFromBackEnd(),
+    meta: {
+      onFailure: () => toastr.warning('Failure!', 'Database Error.'),
+    }
   }
 );

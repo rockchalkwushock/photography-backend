@@ -16,10 +16,10 @@ export default (state = initialState, action) => {
       return handle(state, action, {
         start: s => ({ ...s, isLoading: true }),
         finish: s => ({ ...s, isLoading: false }),
-        failure: s => ({ ...s, error: true, message: payload.message }),
+        failure: s => ({ ...s, error: true, message: 'Upload failed!' }),
         success: s => ({
           ...s,
-          message: payload.message,
+          message: 'Upload Successful!',
           cloudinary: payload
         }),
       });
@@ -27,10 +27,9 @@ export default (state = initialState, action) => {
       return handle(state, action, {
         start: s => ({ ...s, isLoading: true }),
         finish: s => ({ ...s, isLoading: false }),
-        failure: s => ({ ...s, error: true, message: payload.message }),
+        failure: s => ({ ...s, error: true, message: '' }),
         success: s => ({
           ...s,
-          message: payload.message,
           cloudinary: payload
         }),
       });
