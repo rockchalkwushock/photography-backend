@@ -15,16 +15,22 @@ const styles = {
 };
 
 const Navbar = ({ auth, logout, path }) => (
-    <Menu style={auth ? styles.root.auth : styles.root}>
+    <Menu style={!auth ? styles.root : styles.root.auth}>
       {!auth ? (
         <Menu.Menu>
-          <Menu.Item onClick={() => browserHistory.push(auth ? '/admin' : '/')}>
+          <Menu.Item
+            onClick={() => browserHistory.push(auth ? '/admin' : '/')}
+            style={{ color: 'black' }}
+          >
             MashaEltsovaPhotography
           </Menu.Item>
         </Menu.Menu>
       ) : (
         <Menu.Menu>
-          <Menu.Item onClick={() => browserHistory.push(auth ? '/admin' : '/')}>
+          <Menu.Item
+            onClick={() => browserHistory.push(auth ? '/admin' : '/')}
+            style={{ color: 'white' }}
+          >
             MashaEltsovaPhotography
           </Menu.Item>
         </Menu.Menu>
@@ -32,16 +38,27 @@ const Navbar = ({ auth, logout, path }) => (
 
         {!auth ? (
           <Menu.Menu position='right'>
-            <Menu.Item active={path === '/signup'} onClick={() => browserHistory.push('/signup')}>
+            <Menu.Item
+              active={path === '/signup'}
+              onClick={() => browserHistory.push('/signup')}
+              style={{ color: 'black' }}
+            >
               Sign Up
             </Menu.Item>
-            <Menu.Item active={path === '/login'} onClick={() => browserHistory.push('/login')}>
+            <Menu.Item
+              active={path === '/login'}
+              onClick={() => browserHistory.push('/login')}
+              style={{ color: 'black' }}
+            >
               Login
             </Menu.Item>
           </Menu.Menu>
         ) : (
           <Menu.Menu position="right">
-          <Menu.Item onClick={() => logout()}>
+          <Menu.Item
+            onClick={() => logout()}
+            style={{ color: 'white' }}
+          >
             Logout
           </Menu.Item>
         </Menu.Menu>

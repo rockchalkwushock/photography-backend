@@ -7,10 +7,10 @@ import Routes from './Routes';
 
 render(
   <Provider store={store}>
-    <div>
+    <div className='provider'>
       <Routes />
       <ReduxToastr
-        timeOut={1500}
+        timeOut={2500}
         newestOnTop={false}
         preventDuplicates
         position="top-right"

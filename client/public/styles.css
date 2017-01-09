@@ -1,7 +1,23 @@
-html, body, #root, .application {
+* {
+  box-sizing: border-box;
+}
+html,
+body,
+#root,
+.provider,
+.application,
+.dashboard
+.sidebar {
   margin: 0, auto;
   height: 100%;
 }
 html {
  overflow: hidden;
+ position: relative;
+ min-height: 100%;
+}
+
+
+.ui.menu {
+  margin: 0
 }

@@ -10,7 +10,7 @@ class SideBar extends Component {
     const { visible } = this.state;
     const { getCloud, getDB, pics } = this.props;
     return (
-      <div>
+      <div className='siderbar'>
         <Sidebar.Pushable as={Segment}>
           <Sidebar
             as={Menu}

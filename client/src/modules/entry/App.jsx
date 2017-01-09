@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import axios from 'axios';
-import { Navbar } from '../layout';
+import { Footer, Navbar } from '../layout';
 
 class App extends Component {
   componentWillMount() {
@@ -20,6 +20,7 @@ class App extends Component {
           path={location.pathname}
         />
         {children}
+        <Footer auth={user} />
       </div>
     );
   }
