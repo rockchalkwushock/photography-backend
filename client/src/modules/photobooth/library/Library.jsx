@@ -3,17 +3,13 @@ import Loading from 'react-loading';
 import { Image } from 'semantic-ui-react';
 
 class Library extends Component {
-  // When component mounts should call GET
-  // to DB for all pics.
-  // If DB is empty need to handle with message.
   componentWillMount() {
-    this.props.getDB();
+    this.props.getFromBackEnd();
   }
   render() {
-    const { pics } = this.props;
-    console.log(pics);
-    if (!pics) return <Loading />;
-    if (pics === []) {
+    const { photos } = this.props;
+    if (!photos) return <Loading />;
+    if (photos === []) {
       return (
         <div className="initial">
           <h1>You have no images stored yet.</h1>
@@ -21,7 +17,7 @@ class Library extends Component {
         </div>
       );
     }
-    const images = pics.reduce((array, item, index) => {
+    const images = photos.reduce((array, item, index) => {
       const { url } = item;
       array.push(
         <Image
@@ -42,8 +38,8 @@ class Library extends Component {
 }
 
 Library.propTypes = {
-  getDB: PropTypes.func.isRequired,
-  pics: PropTypes.array
+  getFromBackEnd: PropTypes.func.isRequired,
+  photos: PropTypes.array
 };
 
 export default Library;

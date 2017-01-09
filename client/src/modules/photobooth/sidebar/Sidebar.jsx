@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { Sidebar, Segment, Menu, Icon } from 'semantic-ui-react';
-import Library from './Library';
+import LibraryContainer from '../library/LibraryContainer';
 import { openWidget } from '../../../helpers';
 
 class SideBar extends Component {
@@ -8,7 +8,7 @@ class SideBar extends Component {
 
   render() {
     const { visible } = this.state;
-    const { getCloud, getDB, pics } = this.props;
+    const { getCloudinaryData } = this.props;
     return (
       <div className='siderbar'>
         <Sidebar.Pushable as={Segment}>
@@ -24,7 +24,7 @@ class SideBar extends Component {
             <Menu.Item name='upload'>
               <Icon
                 name='cloud upload'
-                onClick={() => openWidget(getCloud)}
+                onClick={() => openWidget(getCloudinaryData)}
               />
               Upload
             </Menu.Item>
@@ -43,7 +43,7 @@ class SideBar extends Component {
           </Sidebar>
           <Sidebar.Pusher>
             <Segment basic>
-              <Library getDB={getDB} pics={pics} />
+              <LibraryContainer />
             </Segment>
           </Sidebar.Pusher>
         </Sidebar.Pushable>
@@ -54,8 +54,7 @@ class SideBar extends Component {
 
 Sidebar.propTypes = {
   defaultVisible: PropTypes.bool,
-  getCloud: PropTypes.func,
-  getDB: PropTypes.func,
+  getCloudinaryData: PropTypes.func,
   visible: PropTypes.bool
 };
 

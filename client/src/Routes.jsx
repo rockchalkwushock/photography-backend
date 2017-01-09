@@ -5,7 +5,7 @@ import { history } from './redux/store';
 import {
   AppContainer,
   AuthViews,
-  DashboardContainer,
+  SidebarContainer,
   HomePage,
   LoginContainer,
   NonAuthViews,
@@ -26,7 +26,7 @@ export default () => (
     {/* Only Authenticated Users may visit these routes. */}
       <Route component={AuthViews}>
         <Route path='/admin'>
-          <IndexRoute component={DashboardContainer} />
+          <IndexRoute component={SidebarContainer} />
         </Route>
       </Route>
     </Route>
