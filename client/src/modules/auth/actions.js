@@ -1,3 +1,4 @@
+import { toastr } from 'react-redux-toastr';
 import { CHECK_TOKEN, LOGIN_USER, LOGOUT_USER, SIGNUP_USER } from './types';
 import { getTokenFromRedux } from '../../helpers';
 import {
@@ -7,18 +8,14 @@ import {
   verifyToken
 } from './apiMethods';
 
-/*
-  NOTE: Use onFailure() & onSuccess for rendering message to user.
-*/
-
 export const signupUser = values => {
   const { email, password } = values;
   return {
     type: SIGNUP_USER,
     promise: createAuthUser(email, password),
     meta: {
-      onFailure: (err) => console.log(err),
-      onSuccess: (res) => console.log(res)
+      onFailure: () => toastr.warning('Failure!', 'Signup failed!'),
+      onSuccess: () => toastr.success('Success!', 'Sigup Successful!')
     }
   };
 };
@@ -29,31 +26,28 @@ export const loginUser = values => {
     type: LOGIN_USER,
     promise: authenticateUser(email, password),
     meta: {
-      onFailure: (err) => console.log(err),
-      onSuccess: (res) => console.log(res)
+      onFailure: () => toastr.warning('Failure!', 'Log in failed!'),
+      onSuccess: () => toastr.success(
+        'Success!', 'You have been logged in!')
     }
   };
 };
 
-export const logoutUser = () => {
-  unAuthUser();
-  return {
+export const logoutUser = () => (
+  {
     type: LOGOUT_USER,
+    promise: unAuthUser(),
     meta: {
-      onFailure: (err) => console.log(err),
-      onSuccess: (res) => console.log(res)
+      onFailure: (res) => toastr.warning('Failure!', res.message),
+      onSuccess: (res) => toastr.success('Success!', res.message)
     }
-   };
-};
+  }
+);
 
 export const checkToken = () => {
   const token = getTokenFromRedux();
   return {
     type: CHECK_TOKEN,
-    promise: verifyToken(token),
-    meta: {
-      onFailure: (err) => console.log(err),
-      onSuccess: (res) => console.log(res)
-    }
+    promise: verifyToken(token)
   };
 };

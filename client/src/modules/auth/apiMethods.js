@@ -2,8 +2,17 @@ import axios from 'axios';
 import { browserHistory } from 'react-router';
 
 export const unAuthUser = () => {
-  axios.defaults.headers.common['Authorization'] = ''; // eslint-disable-line
-  browserHistory.push('/login');
+  const promise = new Promise(resolve => {
+    const data = {
+      message: 'Logged Out!',
+      token: null,
+      user: null
+    };
+    axios.defaults.headers.common['Authorization'] = ''; // eslint-disable-line
+    browserHistory.push('/login');
+    resolve(data);
+  });
+  return promise;
 };
 
 export const createAuthUser = (email, password) => {

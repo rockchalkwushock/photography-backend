@@ -10,7 +10,7 @@ render(
     <div>
       <Routes />
       <ReduxToastr
-        timeOut={4000}
+        timeOut={1500}
         newestOnTop={false}
         preventDuplicates
         position="top-right"

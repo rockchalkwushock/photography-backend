@@ -1,3 +1,4 @@
+import { toastr } from 'react-redux-toastr';
 import { CLOUDINARY_DATA, DATABASE_IMAGES } from './types';
 import { fetchFromBackEnd, sendToBackEnd } from './apiMethods';
 
@@ -10,8 +11,8 @@ export const getCloudinaryData = (error, result) => (
     type: CLOUDINARY_DATA,
     promise: sendToBackEnd(result),
     meta: {
-      onFailure: err => console.log(err),
-      onSuccess: res => console.log(res)
+      onFailure: () => toastr.warning('Failure!', 'Upload failed!'),
+      onSuccess: () => toastr.success('Success!', 'Upload Successful!')
     }
   }
 );
@@ -19,10 +20,6 @@ export const getCloudinaryData = (error, result) => (
 export const getFromBackEnd = () => (
   {
     type: DATABASE_IMAGES,
-    promise: fetchFromBackEnd(),
-    meta: {
-      onFailure: err => console.log(err),
-      onSuccess: res => console.log(res)
-    }
+    promise: fetchFromBackEnd()
   }
 );

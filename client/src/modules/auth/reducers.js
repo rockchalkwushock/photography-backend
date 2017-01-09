@@ -17,23 +17,40 @@ export default (state = initialState, action) => {
       start: s => ({ ...s, isLoading: true }),
       finish: s => ({ ...s, isLoading: false }),
       failure: () => initialState, // NOTE: I believe there is a better way of doing this.
-      success: s => ({ ...s, token: payload.token, user: payload.user }),
+      success: s => ({
+        ...s,
+        token: payload.token,
+        user: payload.user
+      }),
     });
     case LOGIN_USER:
     case SIGNUP_USER:
     return handle(state, action, {
       start: s => ({ ...s, isLoading: true }),
       finish: s => ({ ...s, isLoading: false }),
-      failure: s => ({ ...s, error: true, message: payload.message }),
+      failure: s => ({ ...s, error: true }),
       success: s => ({
         ...s,
-        message: payload.message,
         token: payload.token,
         user: payload.user
       }),
     });
     case LOGOUT_USER:
-      return initialState;
+      return handle(state, action, {
+        start: s => ({ ...s, isLoading: true }),
+        finish: s => ({ ...s, isLoading: false }),
+        failure: (s) => ({
+          ...s,
+          error: true,
+          message: 'Not Logged Out!'
+        }),
+        success: s => ({
+          ...s,
+          message: 'Logged Out!',
+          token: null,
+          user: null
+        }),
+      });
     default:
       return state;
   }
