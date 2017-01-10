@@ -7,13 +7,18 @@ const styles = {
       color: 'white',
       fontStyle: 'italic',
       fontWeight: 'bold',
+      position: 'absolute',
+      bottom: 0,
+      left: 0,
+      width: '100%'
     },
     backgroundColor: '#FFF',
     color: 'black',
     fontSize: '1em',
     position: 'absolute',
     bottom: 0,
-    left: 0
+    left: 0,
+    width: '100%'
   }
 };
 
