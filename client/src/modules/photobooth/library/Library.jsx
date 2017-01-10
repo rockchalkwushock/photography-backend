@@ -1,15 +1,17 @@
 import React, { Component, PropTypes } from 'react';
-import Loading from 'react-loading';
+// import Loading from 'react-loading';
 import { Image } from 'semantic-ui-react';
+import { LoadingScreen } from '../../../commons';
 
 class Library extends Component {
   componentWillMount() {
     this.props.getFromBackEnd();
   }
   render() {
+    console.log(this.props);
     const { photos } = this.props;
-    if (!photos) return <Loading />;
-    if (photos === []) {
+    if (!photos.isFetched) return <LoadingScreen />;
+    if (photos.server === []) {
       return (
         <div className="initial">
           <h1>You have no images stored yet.</h1>
@@ -17,7 +19,7 @@ class Library extends Component {
         </div>
       );
     }
-    const images = photos.reduce((array, item, index) => {
+    const images = photos.server.reduce((array, item, index) => {
       const { url } = item;
       array.push(
         <Image
@@ -39,7 +41,7 @@ class Library extends Component {
 
 Library.propTypes = {
   getFromBackEnd: PropTypes.func.isRequired,
-  photos: PropTypes.array
+  photos: PropTypes.object
 };
 
 export default Library;

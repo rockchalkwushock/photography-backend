@@ -17,7 +17,7 @@ export const fetchFromBackEnd = () => {
       .then(
         res => {
           console.log(res.data.payload);
-          resolve(res.data.payload);
+          setTimeout(() => resolve(res.data.payload), 750);
         },
         err => {
           console.log(err);

@@ -3,7 +3,7 @@ import Library from './Library';
 import { getFromBackEnd } from '../actions';
 
 const mapStateToProps = ({ photo }) => (
-  { photos: photo.server }
+  { photos: photo }
 );
 
 export default connect(
