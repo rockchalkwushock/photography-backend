@@ -3,7 +3,7 @@ import { CHECK_TOKEN, LOGIN_USER, LOGOUT_USER, SIGNUP_USER } from './types';
 
 const initialState = {
   error: false,
-  isLoading: false,
+  isFetched: false,
   message: null,
   user: null,
   token: null
@@ -14,8 +14,8 @@ export default (state = initialState, action) => {
   switch (type) {
     case CHECK_TOKEN:
     return handle(state, action, {
-      start: s => ({ ...s, isLoading: true }),
-      finish: s => ({ ...s, isLoading: false }),
+      start: s => ({ ...s, isFetched: false }),
+      finish: s => ({ ...s, isFetched: true }),
       failure: () => initialState, // NOTE: I believe there is a better way of doing this.
       success: s => ({
         ...s,
@@ -26,8 +26,8 @@ export default (state = initialState, action) => {
     case LOGIN_USER:
     case SIGNUP_USER:
     return handle(state, action, {
-      start: s => ({ ...s, isLoading: true }),
-      finish: s => ({ ...s, isLoading: false }),
+      start: s => ({ ...s, isFetched: false }),
+      finish: s => ({ ...s, isFetched: true }),
       failure: s => ({ ...s, error: true }),
       success: s => ({
         ...s,
@@ -37,8 +37,8 @@ export default (state = initialState, action) => {
     });
     case LOGOUT_USER:
       return handle(state, action, {
-        start: s => ({ ...s, isLoading: true }),
-        finish: s => ({ ...s, isLoading: false }),
+        start: s => ({ ...s, isFetched: false }),
+        finish: s => ({ ...s, isFetched: true }),
         failure: (s) => ({
           ...s,
           error: true,

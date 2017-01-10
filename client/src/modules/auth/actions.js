@@ -1,4 +1,5 @@
 import { toastr } from 'react-redux-toastr';
+import { browserHistory } from 'react-router';
 import { CHECK_TOKEN, LOGIN_USER, LOGOUT_USER, SIGNUP_USER } from './types';
 import { getTokenFromRedux } from '../../helpers';
 import {
@@ -47,6 +48,12 @@ export const checkToken = () => {
   const token = getTokenFromRedux();
   return {
     type: CHECK_TOKEN,
-    promise: verifyToken(token)
+    promise: verifyToken(token),
+    meta: {
+      onFailure: () => {
+        browserHistory.push('/login');
+        toastr.warning('Not Authorized!', 'No token found.');
+      }
+    }
   };
 };

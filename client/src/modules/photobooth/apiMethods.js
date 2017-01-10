@@ -16,15 +16,12 @@ export const fetchFromBackEnd = () => {
     axios.get('/library')
       .then(
         res => {
-          console.log(res.data.payload);
-          setTimeout(() => resolve(res.data.payload), 750);
+          resolve(res.data.payload);
         },
         err => {
-          console.log(err);
           reject(err);
         }
       );
   });
-  console.log(promise);
   return promise;
 };

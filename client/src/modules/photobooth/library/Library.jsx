@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-// import Loading from 'react-loading';
 import { Image } from 'semantic-ui-react';
 import { LoadingScreen } from '../../../commons';
 
@@ -8,7 +7,6 @@ class Library extends Component {
     this.props.getFromBackEnd();
   }
   render() {
-    console.log(this.props);
     const { photos } = this.props;
     if (!photos.isFetched) return <LoadingScreen />;
     if (photos.server === []) {
