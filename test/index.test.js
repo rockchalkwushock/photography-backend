@@ -202,7 +202,11 @@ describe('API Tests', () => {
     request(server)
       .post('/api/v1/library')
       .set('Authorization', token)
-      .send({ result: [{}] })
+      .send({ result: [
+        { public_id: 'edih3h5ukohotwr6rp38' },
+        { public_id: 'eabc3h5ukohotwr6rp38' },
+        { public_id: 'edef3h5ukohotwr6rp38' }
+      ] })
       .then(
         res => {
           const { cloudinary, message, success } = res.body;
@@ -217,6 +221,21 @@ describe('API Tests', () => {
           expect(err.res.statusCode).to.equal(500);
           expect(success).to.equal(false);
           expect(message).to.equal(err);
+          done();
+        }
+      );
+  });
+  it.skip('expected Alablama to win', (done) => {
+    const public_id = 'edef3h5ukohotwr6rp38';
+    request(server)
+      .delete(`/api/v1/library/${public_id}`)
+      .set('Authorization', token)
+      .then(
+        res => {
+          const { success } = res.body;
+          console.log(res.body);
+          expect(res.statusCode).to.equal(201);
+          expect(success).to.equal(true);
           done();
         }
       );

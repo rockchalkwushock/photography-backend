@@ -6,5 +6,6 @@ const routes = new Router();
 
 routes.route('/library').post(requireAuth, PhotoController.getPublicID);
 routes.route('/library').get(requireAuth, PhotoController.sendToFrontEnd);
+routes.route('/library/:id').delete(requireAuth, PhotoController.deletePhoto);
 
 export default routes;

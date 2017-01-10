@@ -1,5 +1,6 @@
-// import mongoose from 'mongoose';
+import cloudinary from 'cloudinary';
 import Photo from './model';
+import '../../config/cloudinaryConfig';
 
 export const getPublicID = (req, res) => {
   const data = req.body.result; // this should be an array of object(s)
@@ -46,4 +47,21 @@ export const sendToFrontEnd = (req, res) => {
       err => res.status(500).json({ success: false, message: err })
     );
     console.timeEnd('ARRAY');
+};
+
+export const deletePhoto = (req, res) => {
+  // setup for one item at moment
+  const { public_id } = req.body;
+  // remove from Cloudinary Servers
+  cloudinary.v2.uploader.destroy(public_id)
+    .then(
+      result => res.status(201).json({ success: true, payload: result }), // should return 'ok'
+      err => res.status(500).json({ success: false, message: err })
+    );
+  // remove from my db
+  Photo.findOneAndDelete(public_id)
+    .then(
+      img => res.status(201).json({ success: true, payload: img }),
+      err => res.status(500).json({ success: false, payload: err })
+    );
 };
