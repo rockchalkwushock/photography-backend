@@ -36,7 +36,7 @@ class Library extends Component {
     }, []);
     return (
       <div className="library" style={styles.root}>
-          <Image.Group size='small'>
+          <Image.Group size='tiny'>
             {images}
           </Image.Group>
       </div>

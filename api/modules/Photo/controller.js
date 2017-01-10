@@ -49,7 +49,7 @@ export const sendToFrontEnd = (req, res) => {
     console.timeEnd('ARRAY');
 };
 
-export const deletePhoto = (req, res) => {
+export const deletePhotoCloudinary = (req, res) => {
   // setup for one item at moment
   const { public_id } = req.body;
   // remove from Cloudinary Servers
@@ -58,6 +58,11 @@ export const deletePhoto = (req, res) => {
       result => res.status(201).json({ success: true, payload: result }), // should return 'ok'
       err => res.status(500).json({ success: false, message: err })
     );
+};
+
+export const deletePhotoDB = (req, res) => {
+  // setup for one item at moment
+  const { public_id } = req.body;
   // remove from my db
   Photo.findOneAndDelete(public_id)
     .then(

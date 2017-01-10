@@ -2,9 +2,13 @@ import axios from 'axios';
 
 export const sendToBackEnd = result => {
   const promise = new Promise((resolve, reject) => {
+    console.log(result);
     axios.post('/library', { result })
       .then(
-        res => resolve(res.data.cloudinary),
+        res => {
+          console.log(res.data.cloudinary);
+          resolve(res.data.cloudinary);
+        },
         err => reject(err)
       );
   });

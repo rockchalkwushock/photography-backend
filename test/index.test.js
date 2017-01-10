@@ -1,6 +1,4 @@
 import mongoose from 'mongoose';
-// import _ from 'lodash';
-// import faker from 'faker';
 import { expect } from 'chai';
 import request from 'supertest';
 import { Photo } from '../api/modules';

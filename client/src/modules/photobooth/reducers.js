@@ -11,6 +11,7 @@ const initialState = {
 
 export default (state = initialState, action) => {
   const { payload, type } = action;
+  console.log(payload);
   switch (type) {
     case CLOUDINARY_DATA:
       return handle(state, action, {
