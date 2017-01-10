@@ -1,6 +1,5 @@
 import cloudinary from 'cloudinary';
 import './envConfig';
-import '../../.env';
 
 cloudinary.config({
   cloud_name: process.env.CLOUDNAME,
