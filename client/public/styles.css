@@ -18,6 +18,12 @@ html {
 .ui.menu {
   margin: 0
 }
+.ui.basic.segment {
+  height: 86vh;
+}
+.ui.small.images {
+  height: 83vh;
+}
 .application {
   position: relative;
 }

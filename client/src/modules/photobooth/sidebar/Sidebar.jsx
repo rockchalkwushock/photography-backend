@@ -5,7 +5,7 @@ import { openWidget } from '../../../helpers';
 
 const styles = {
   root: {
-    height: '90vh'
+    height: '86vh'
   }
 };
 

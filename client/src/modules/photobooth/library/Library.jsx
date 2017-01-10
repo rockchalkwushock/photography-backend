@@ -2,14 +2,21 @@ import React, { Component, PropTypes } from 'react';
 import { Image } from 'semantic-ui-react';
 import { LoadingScreen } from '../../../commons';
 
+const styles = {
+  root: {
+    height: '83vh'
+  }
+};
+
 class Library extends Component {
   componentWillMount() {
     this.props.getFromBackEnd();
   }
   render() {
     const { photos } = this.props;
-    if (!photos.isFetched) return <LoadingScreen />;
-    if (photos.server === []) {
+    if (!photos.isFetched) {
+      return <LoadingScreen />;
+    } else if (photos.server === []) {
       return (
         <div className="initial">
           <h1>You have no images stored yet.</h1>
@@ -28,10 +35,10 @@ class Library extends Component {
       return array;
     }, []);
     return (
-      <div className="library">
-        <Image.Group size='small'>
-          {images}
-        </Image.Group>
+      <div className="library" style={styles.root}>
+          <Image.Group size='small'>
+            {images}
+          </Image.Group>
       </div>
     );
   }
