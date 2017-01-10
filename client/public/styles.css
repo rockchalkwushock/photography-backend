@@ -6,13 +6,13 @@ body,
 #root,
 .provider,
 .application,
-.dashboard
+.dashboard,
 .sidebar {
   margin: 0, auto;
   height: 100vh;
 }
 html {
-
+ overflow-x: hidden;
  position: relative;
  min-height: 100vh;
 }
