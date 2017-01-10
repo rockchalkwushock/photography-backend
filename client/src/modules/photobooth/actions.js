@@ -7,8 +7,8 @@ export const getCloudinaryData = (error, result) => (
     type: CLOUDINARY_DATA,
     promise: sendToBackEnd(result),
     meta: {
-      onFailure: (res) => toastr.warning('Failure!', res.message),
-      onSuccess: (res) => toastr.success('Success!', res.message)
+      onFailure: () => toastr.warning('Failure!', 'Upload Failed!'),
+      onSuccess: () => toastr.success('Success!', 'Successfully Uploaded!')
     }
   }
 );

@@ -34,7 +34,7 @@ export const signup = (req, res) => {
           }))
         .catch(err => {
           let error;
-          if (err.code === 11000) error = 'Duplicate email, plz provide a other one!';
+          if (err.code === 11000) error = 'Duplicate email, please provide another one!';
           res.status(422).json({ success: false, message: error || err });
         });
     });
