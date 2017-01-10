@@ -10,7 +10,7 @@ class SideBar extends Component {
     const { visible } = this.state;
     const { getCloudinaryData } = this.props;
     return (
-      <div className='siderbar'>
+      <div className='sidebar'>
         <Sidebar.Pushable as={Segment}>
           <Sidebar
             as={Menu}
