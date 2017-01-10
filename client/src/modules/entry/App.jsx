@@ -4,9 +4,7 @@ import { Footer, Navbar } from '../layout';
 
 class App extends Component {
   componentWillMount() {
-    if (this.props.auth.user) {
-      this.props.checkToken();
-    }
+    this.props.checkToken();
   }
   render() {
     const { auth, children, location, logoutUser } = this.props;
@@ -19,7 +17,7 @@ class App extends Component {
           logout={logoutUser}
           path={location.pathname}
         />
-        {children}
+        {!auth ? <h1>Not a User</h1> : children}
         <Footer auth={user} />
       </div>
     );

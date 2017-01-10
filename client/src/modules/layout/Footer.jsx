@@ -10,7 +10,10 @@ const styles = {
     },
     backgroundColor: '#FFF',
     color: 'black',
-    fontSize: '1em'
+    fontSize: '1em',
+    position: 'absolute',
+    bottom: 0,
+    left: 0
   }
 };
 
