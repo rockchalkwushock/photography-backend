@@ -4,14 +4,8 @@ import { Button, Form, Grid, Message } from 'semantic-ui-react';
 import { InputField } from '../../../commons';
 import { loginValidation } from './validate';
 
-const styles = {
-  root: {
-    position: 'relative'
-  },
-};
-
 const Login = ({ handleSubmit, loginUser, valid }) => (
-  <div style={styles.root}>
+  <div className='login'>
     <Grid centered columns={3} style={{ height: '90vh' }} verticalAlign="middle">
       <Grid.Row>
         <Grid.Column>

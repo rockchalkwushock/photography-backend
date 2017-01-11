@@ -16,14 +16,28 @@ html {
  min-height: 100vh;
 }
 .ui.menu {
-  margin: 0
+  margin: 0;
+}
+.sidebar {
+  height: 86vh;
 }
 .ui.basic.segment {
   height: 86vh;
 }
-.ui.small.images {
+.library
+.ui.tiny.images {
   height: 83vh;
 }
-.application {
+.application,
+.login
+.signup {
   position: relative;
+}
+.page404,
+.homepage {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 80vh;
+  flex-direction: column;
 }

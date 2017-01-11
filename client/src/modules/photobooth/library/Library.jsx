@@ -2,12 +2,6 @@ import React, { Component, PropTypes } from 'react';
 import { Image } from 'semantic-ui-react';
 import { LoadingScreen } from '../../../commons';
 
-const styles = {
-  root: {
-    height: '83vh'
-  }
-};
-
 class Library extends Component {
   componentWillMount() {
     this.props.getFromBackEnd();
@@ -35,7 +29,7 @@ class Library extends Component {
       return array;
     }, []);
     return (
-      <div className="library" style={styles.root}>
+      <div className="library">
           <Image.Group size='tiny'>
             {images}
           </Image.Group>

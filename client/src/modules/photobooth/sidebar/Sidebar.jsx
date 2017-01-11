@@ -3,12 +3,6 @@ import { Sidebar, Segment, Menu, Icon } from 'semantic-ui-react';
 import LibraryContainer from '../library/LibraryContainer';
 import { openWidget } from '../../../helpers';
 
-const styles = {
-  root: {
-    height: '86vh'
-  }
-};
-
 class SideBar extends Component {
   state = { visible: true }
 
@@ -16,7 +10,7 @@ class SideBar extends Component {
     const { visible } = this.state;
     const { getCloudinaryData } = this.props;
     return (
-      <div className='sidebar' style={styles.root}>
+      <div className='sidebar'>
         <Sidebar.Pushable as={Segment}>
           <Sidebar
             as={Menu}
