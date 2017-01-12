@@ -21,6 +21,8 @@ export default (state = initialState, action) => {
           ...s,
           message: 'Upload Successful!',
           cloudinary: payload,
+          // only will append one image on re-render due to state change.
+          // even when more than one image has been uploaded.
           server: [...s.server, { url: payload[0].url, _id: payload[0]._id }]
         }),
       });

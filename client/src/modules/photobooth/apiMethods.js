@@ -5,6 +5,8 @@ export const sendToBackEnd = result => {
     axios.post('/library', { result })
       .then(
         res => {
+          // array of object(s)...images
+          // this holds the data from the Cloudinary response.
           resolve(res.data.cloudinary);
         },
         err => reject(err)
@@ -18,6 +20,8 @@ export const fetchFromBackEnd = () => {
     axios.get('/library')
       .then(
         res => {
+          // array of object(s)...images
+          // this holds the data from mongo DB
           resolve(res.data.payload);
         },
         err => {

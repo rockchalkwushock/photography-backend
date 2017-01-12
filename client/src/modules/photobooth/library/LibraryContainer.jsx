@@ -11,3 +11,5 @@ export default connect(
   mapStateToProps,
   { getFromBackEnd }
 )(withTranslate(Library));
+
+// connect Library to Redux Store & pass translate() to component.

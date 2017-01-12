@@ -4,12 +4,14 @@ import { LoadingScreen } from '../../../commons';
 
 class Library extends Component {
   componentWillMount() {
+    // perform GET Request for appending images.
     this.props.getFromBackEnd();
   }
   render() {
     const { photos, translate } = this.props;
     if (!photos.isFetched) return <LoadingScreen />;
 
+    // Where array of object(s) is processed for rendering/re-rendering.
     const images = photos.server.reduce((array, item, index) => {
       const { url } = item;
       if (!url) {
