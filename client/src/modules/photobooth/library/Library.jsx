@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { Image } from 'semantic-ui-react';
+import { Image, Label } from 'semantic-ui-react';
 import { LoadingScreen } from '../../../commons';
 
 class Library extends Component {
@@ -12,6 +12,13 @@ class Library extends Component {
 
     const images = photos.server.reduce((array, item, index) => {
       const { url } = item;
+      if (!url) {
+        array.push(
+          <Image key={index} size='tiny'>
+            <Label content='Image not found!' icon='warning' />
+          </Image>
+        );
+      }
       array.push(
         <Image
           key={index}
