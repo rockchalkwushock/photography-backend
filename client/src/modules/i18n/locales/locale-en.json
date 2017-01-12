@@ -34,6 +34,7 @@
      "duplicate": "Duplicate email, please provide another one!",
      "home:h1": "YOU ARE ON THE HOMEPAGE.",
      "home:h2": "This is a non-auth view.",
-     "home:h3": "This view will be setup at a later date."
+     "home:h3": "This view will be setup at a later date.",
+     "temp": "Temporary"
  }
 }

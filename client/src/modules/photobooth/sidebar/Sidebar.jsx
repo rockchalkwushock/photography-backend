@@ -55,6 +55,7 @@ class SideBar extends Component {
 Sidebar.propTypes = {
   defaultVisible: PropTypes.bool,
   getCloudinaryData: PropTypes.func,
+  translate: PropTypes.func,
   visible: PropTypes.bool
 };
 

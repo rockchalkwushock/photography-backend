@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import { withTranslate } from 'react-redux-multilingual';
 
 const styles = {
   root: {
@@ -22,13 +23,13 @@ const styles = {
   }
 };
 
-const Footer = ({ auth }) => (
+const Footer = ({ auth, translate }) => (
   <footer style={!auth ? styles.root : styles.root.auth}>
     <div className="containter" style={{ padding: '0.5em' }}>
       <ul>
-        <li>Name</li>
-        <li>Contact</li>
-        <li>Copyright</li>
+        <li>{translate('temp')}</li>
+        <li>{translate('temp')}</li>
+        <li>{translate('temp')}</li>
       </ul>
     </div>
   </footer>
@@ -36,6 +37,7 @@ const Footer = ({ auth }) => (
 
 Footer.propTypes = {
   auth: PropTypes.object,
+  translate: PropTypes.func
 };
 
-export default Footer;
+export default withTranslate(Footer);

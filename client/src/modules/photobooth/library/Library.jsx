@@ -40,7 +40,8 @@ class Library extends Component {
 
 Library.propTypes = {
   getFromBackEnd: PropTypes.func.isRequired,
-  photos: PropTypes.object
+  photos: PropTypes.object,
+  translate: PropTypes.func
 };
 
 export default Library;
