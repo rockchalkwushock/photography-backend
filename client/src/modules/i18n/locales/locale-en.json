@@ -37,6 +37,8 @@
      "home:h3": "This view will be setup at a later date.",
      "temp": "Temporary",
      "page404": "Page Not Found",
-     "home": "Return Home"
+     "home": "Return Home",
+     "no-img": "You have no images stored yet.",
+     "upload-prompt": "Please upload images to the cloud."
  }
 }

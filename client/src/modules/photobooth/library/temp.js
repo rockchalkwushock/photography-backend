@@ -20,13 +20,15 @@ class Library extends Component {
       );
       return array;
     }, []);
-
+    console.log(photos.server);
     return (
-      <div>
-        {photos.server.length === 0 ? (
+      <div className="library">
+        {photos.server === [] ? (
           <div className="initial">
             <h1>{translate('no-img')}</h1>
             <h1>{translate('upload-prompt')}</h1>
+            <h1>You have no images stored yet.</h1>
+            <h1>Please upload images to the cloud.</h1>
           </div>
         ) : (
           <div className="library">
