@@ -4239,6 +4239,12 @@ react-loading@^0.0.9:
   version "0.0.9"
   resolved "https://registry.yarnpkg.com/react-loading/-/react-loading-0.0.9.tgz#e9fba6948915ba7742a508193828b6c73eb04956"
 
+react-redux-multilingual@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/react-redux-multilingual/-/react-redux-multilingual-1.0.2.tgz#8ac1dcf34e124b62b019506349bb719198963ce2"
+  dependencies:
+    hoist-non-react-statics "^1.2.0"
+
 react-redux-toastr@^4.4.4:
   version "4.4.4"
   resolved "https://registry.yarnpkg.com/react-redux-toastr/-/react-redux-toastr-4.4.4.tgz#60f7185723b981761aa08f3b4deb43491dd1758a"

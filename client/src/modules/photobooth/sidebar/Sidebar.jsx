@@ -8,7 +8,7 @@ class SideBar extends Component {
 
   render() {
     const { visible } = this.state;
-    const { getCloudinaryData } = this.props;
+    const { getCloudinaryData, translate } = this.props;
     return (
       <div className='sidebar'>
         <Sidebar.Pushable as={Segment}>
@@ -26,19 +26,19 @@ class SideBar extends Component {
                 name='cloud upload'
                 onClick={() => openWidget(getCloudinaryData)}
               />
-              Upload
+              {translate('upload')}
             </Menu.Item>
             <Menu.Item name='filter'>
               <Icon name='filter' />
-              Coming Soon: Filter!
+              {translate('filter')}
             </Menu.Item>
             <Menu.Item name='chat'>
               <Icon name='chat' />
-              Coming Soon: Chat!
+              {translate('chat')}
             </Menu.Item>
             <Menu.Item name='help'>
               <Icon name='help' />
-              Coming Soon: Help!
+              {translate('help')}
             </Menu.Item>
           </Sidebar>
           <Sidebar.Pusher>

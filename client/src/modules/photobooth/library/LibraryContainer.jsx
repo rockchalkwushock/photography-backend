@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { withTranslate } from 'react-redux-multilingual';
 import Library from './Library';
 import { getFromBackEnd } from '../actions';
 
@@ -9,4 +10,4 @@ const mapStateToProps = ({ photo }) => (
 export default connect(
   mapStateToProps,
   { getFromBackEnd }
-)(Library);
+)(withTranslate(Library));

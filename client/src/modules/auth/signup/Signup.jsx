@@ -4,19 +4,19 @@ import { Button, Form, Grid, Message } from 'semantic-ui-react';
 import { InputField } from '../../../commons';
 import { signupValidation } from './validate';
 
-const Signup = ({ handleSubmit, signupUser, valid }) => (
+const Signup = ({ handleSubmit, signupUser, translate, valid }) => (
  <div className='signup'>
     <Grid centered columns={3} style={{ height: '90vh' }} verticalAlign='middle'>
       <Grid.Row>
         <Grid.Column>
           <Message
             attached
-            header='Welcome to Admin!'
-            content='Please register as a user.'
+            header={translate('welcome')}
+            content={translate('pass-prompt')}
           />
           <Form className='attached fluid segment' onSubmit={handleSubmit(signupUser)}>
             <Form.Field>
-              <label htmlFor='email'>Email</label>
+              <label htmlFor='email'>{translate('email')}</label>
               <Field
                 icon='mail'
                 component={InputField}
@@ -26,7 +26,7 @@ const Signup = ({ handleSubmit, signupUser, valid }) => (
               />
             </Form.Field>
             <Form.Field>
-              <label htmlFor='password'>Password</label>
+              <label htmlFor='password'>{translate('password')}</label>
               <Field
                 icon='lock'
                 component={InputField}
@@ -36,7 +36,7 @@ const Signup = ({ handleSubmit, signupUser, valid }) => (
               />
             </Form.Field>
             <Form.Field>
-              <label htmlFor='confirmPassword'>Confirm Password</label>
+              <label htmlFor='confirmPassword'>{translate('confirm')}</label>
               <Field
                 icon='lock'
                 component={InputField}
@@ -45,7 +45,7 @@ const Signup = ({ handleSubmit, signupUser, valid }) => (
                 type='password'
               />
             </Form.Field>
-            <Button primary disabled={!valid} type='submit'>Sign Up</Button>
+            <Button primary disabled={!valid} type='submit'>{translate('signup')}</Button>
           </Form>
         </Grid.Column>
       </Grid.Row>
@@ -56,6 +56,7 @@ const Signup = ({ handleSubmit, signupUser, valid }) => (
 Signup.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   signupUser: PropTypes.func.isRequired,
+  translate: PropTypes.func,
   valid: PropTypes.bool.isRequired
 };
 

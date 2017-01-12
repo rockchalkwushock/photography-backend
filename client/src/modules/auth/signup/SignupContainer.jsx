@@ -1,8 +1,9 @@
 import { connect } from 'react-redux';
+import { withTranslate } from 'react-redux-multilingual';
 import Signup from './Signup';
 import { signupUser } from '../actions'; // TODO: Create actionCreator.
 
 export default connect(
   null,
   { signupUser }
-)(Signup);
+)(withTranslate(Signup));

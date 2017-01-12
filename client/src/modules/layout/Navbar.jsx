@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import { withTranslate } from 'react-redux-multilingual';
 import { browserHistory } from 'react-router';
 import { Menu } from 'semantic-ui-react';
 
@@ -14,7 +15,7 @@ const styles = {
   }
 };
 
-const Navbar = ({ auth, logout, path }) => (
+const Navbar = ({ auth, logout, path, translate }) => (
     <Menu style={!auth ? styles.root : styles.root.auth}>
       {!auth ? (
         <Menu.Menu>
@@ -22,7 +23,7 @@ const Navbar = ({ auth, logout, path }) => (
             onClick={() => browserHistory.push(auth ? '/admin' : '/')}
             style={{ color: 'black' }}
           >
-            MashaEltsovaPhotography
+            {translate('title')}
           </Menu.Item>
         </Menu.Menu>
       ) : (
@@ -31,7 +32,7 @@ const Navbar = ({ auth, logout, path }) => (
             onClick={() => browserHistory.push(auth ? '/admin' : '/')}
             style={{ color: 'white' }}
           >
-            MashaEltsovaPhotography
+            {translate('title')}
           </Menu.Item>
         </Menu.Menu>
       )}
@@ -43,14 +44,14 @@ const Navbar = ({ auth, logout, path }) => (
               onClick={() => browserHistory.push('/signup')}
               style={{ color: 'black' }}
             >
-              Sign Up
+              {translate('signup')}
             </Menu.Item>
             <Menu.Item
               active={path === '/login'}
               onClick={() => browserHistory.push('/login')}
               style={{ color: 'black' }}
             >
-              Login
+              {translate('login')}
             </Menu.Item>
           </Menu.Menu>
         ) : (
@@ -59,7 +60,7 @@ const Navbar = ({ auth, logout, path }) => (
             onClick={() => logout()}
             style={{ color: 'white' }}
           >
-            Logout
+            {translate('nav:logout')}
           </Menu.Item>
         </Menu.Menu>
         )}
@@ -69,7 +70,8 @@ const Navbar = ({ auth, logout, path }) => (
 Navbar.propTypes = {
   auth: PropTypes.object,
   logout: PropTypes.func.isRequired,
-  path: PropTypes.string.isRequired
+  path: PropTypes.string.isRequired,
+  translate: PropTypes.func
 };
 
-export default Navbar;
+export default withTranslate(Navbar);

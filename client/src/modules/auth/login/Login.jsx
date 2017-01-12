@@ -4,19 +4,19 @@ import { Button, Form, Grid, Message } from 'semantic-ui-react';
 import { InputField } from '../../../commons';
 import { loginValidation } from './validate';
 
-const Login = ({ handleSubmit, loginUser, valid }) => (
+const Login = ({ handleSubmit, loginUser, translate, valid }) => (
   <div className='login'>
     <Grid centered columns={3} style={{ height: '90vh' }} verticalAlign="middle">
       <Grid.Row>
         <Grid.Column>
           <Message
             attached
-            header="Welcome to Admin!"
-            content="Please login."
+            header={translate('welcome')}
+            content={translate('login-prompt')}
           />
           <Form className="attached fluid segment" onSubmit={handleSubmit(loginUser)}>
             <Form.Field>
-              <label htmlFor='email'>Email</label>
+              <label htmlFor='email'>{translate('email')}</label>
               <Field
                 icon="mail"
                 component={InputField}
@@ -26,7 +26,7 @@ const Login = ({ handleSubmit, loginUser, valid }) => (
               />
             </Form.Field>
             <Form.Field>
-              <label htmlFor='password'>Password</label>
+              <label htmlFor='password'>{translate('password')}</label>
               <Field
                 icon="lock"
                 component={InputField}
@@ -35,7 +35,7 @@ const Login = ({ handleSubmit, loginUser, valid }) => (
                 type="password"
               />
             </Form.Field>
-            <Button disabled={!valid} primary type="submit">Login</Button>
+            <Button disabled={!valid} primary type="submit">{translate('login')}</Button>
           </Form>
         </Grid.Column>
       </Grid.Row>
@@ -46,6 +46,7 @@ const Login = ({ handleSubmit, loginUser, valid }) => (
 Login.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   loginUser: PropTypes.func.isRequired,
+  translate: PropTypes.func,
   valid: PropTypes.bool.isRequired
 };
 

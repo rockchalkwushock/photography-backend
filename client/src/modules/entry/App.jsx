@@ -7,7 +7,7 @@ class App extends Component {
     this.props.checkToken();
   }
   render() {
-    const { auth, children, location, logoutUser } = this.props;
+    const { auth, children, location, logoutUser, translate } = this.props;
     const { user, token } = auth;
     if (user) axios.defaults.headers.common['Authorization'] = token; // eslint-disable-line
     return (
@@ -16,9 +16,13 @@ class App extends Component {
           auth={user}
           logout={logoutUser}
           path={location.pathname}
+          translate={translate}
         />
         {!auth ? <h1>Not a User</h1> : children}
-        <Footer auth={user} />
+        <Footer
+          auth={user}
+          translate={translate}
+        />
       </div>
     );
   }
@@ -28,7 +32,8 @@ App.propTypes = {
   auth: PropTypes.object.isRequired,
   children: PropTypes.element.isRequired,
   location: PropTypes.object.isRequired,
-  logoutUser: PropTypes.func.isRequired
+  logoutUser: PropTypes.func.isRequired,
+  translate: PropTypes.func
 };
 
 export default App;
