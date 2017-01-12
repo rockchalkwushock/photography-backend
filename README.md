@@ -20,6 +20,7 @@ The Cloudinary interface will be built using Facebook's `create-react-app`. Thes
 - [Create-React-App](https://github.com/facebookincubator/create-react-app)
 - [Semantic-UI-React](http://react.semantic-ui.com/introduction)
 - [Redux-Auth-Wrapper](https://github.com/mjrussell/redux-auth-wrapper)
+- [React-Redux-Multilingual](https://github.com/rmdort/react-redux-multilingual)
 - [Redux-Form](https://github.com/erikras/redux-form/)
 - [Redux-Pack](https://github.com/lelandrichardson/redux-pack)
 - [Express.js](https://expressjs.com)
@@ -64,3 +65,16 @@ The Cloudinary interface will be built using Facebook's `create-react-app`. Thes
 ![Admin View #2](https://github.com/rockchalkwushock/photography-backend/blob/master/mockups/_admin_photobooth.png "Admin View 2")
 
 ![Admin View #3](https://github.com/rockchalkwushock/photography-backend/blob/master/mockups/_admin_photobooth__collection.png "Admin View 3")
+
+
+## Future Features
+
+- Add delete photo functionality: Delete from Cloudinary & API Server simultaneously.
+- Add active status to photos that are actively hosted in website's views.
+- Add filter photos by params: all, active, newest-oldest, oldest-newest.
+- Add chat feature.
+  * Leave messages for developer/owner.
+  * Catch messages from customers and make available to owner.
+- Add help modal for basic functionality instructions.
+
+## Changelog
