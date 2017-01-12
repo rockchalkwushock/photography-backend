@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
+import { withTranslate } from 'react-redux-multilingual';
 import { Button } from 'semantic-ui-react';
 import { browserHistory } from 'react-router';
 
-const Page404 = () => (
+const Page404 = ({ translate }) => (
   <div className='page404'>
-     <h1>Page Not Found</h1>
-     <Button onClick={() => browserHistory.push('/login')}>Return Home</Button>
+     <h1>{translate('page404')}</h1>
+     <Button onClick={() => browserHistory.push('/')}>{translate('home')}</Button>
   </div>
 );
 
-export default Page404;
+Page404.propTypes = {
+  translate: PropTypes.func
+};
+
+export default withTranslate(Page404);
