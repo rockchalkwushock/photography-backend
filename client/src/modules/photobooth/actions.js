@@ -5,7 +5,7 @@ import { fetchFromBackEnd, sendToBackEnd } from './apiMethods';
 export const getCloudinaryData = (error, result) => (
   {
     type: CLOUDINARY_DATA,
-    promise: sendToBackEnd(result),
+    promise: sendToBackEnd(result), // POST Request to API Server
     meta: {
       onFailure: () => toastr.warning('Failure!', 'Upload Failed!'),
       onSuccess: () => toastr.success('Success!', 'Successfully Uploaded!')
@@ -16,7 +16,7 @@ export const getCloudinaryData = (error, result) => (
 export const getFromBackEnd = () => (
   {
     type: DATABASE_IMAGES,
-    promise: fetchFromBackEnd(),
+    promise: fetchFromBackEnd(), // GET Request to API Server
     meta: {
       onFailure: () => toastr.warning('Failure!', 'Database Error.'),
     }

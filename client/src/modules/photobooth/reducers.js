@@ -21,7 +21,7 @@ export default (state = initialState, action) => {
           ...s,
           message: 'Upload Successful!',
           cloudinary: payload,
-          server: [...s.server, { url: payload[0].url, _id: payload[0]._id }]
+          server: [...s.server, ...payload.data.cloudinary]
         }),
       });
     case DATABASE_IMAGES:
@@ -31,7 +31,7 @@ export default (state = initialState, action) => {
         failure: s => ({ ...s, error: true, message: '' }),
         success: s => ({
           ...s,
-          server: payload
+          server: payload.data.payload
         }),
       });
     default:

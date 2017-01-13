@@ -4,24 +4,26 @@ import { LoadingScreen } from '../../../commons';
 
 class Library extends Component {
   componentWillMount() {
+    // perform GET Request for appending images.
     this.props.getFromBackEnd();
   }
   render() {
     const { photos, translate } = this.props;
     if (!photos.isFetched) return <LoadingScreen />;
 
-    const images = photos.server.reduce((array, item, index) => {
-      const { url } = item;
+    // Where array of object(s) is processed for rendering/re-rendering.
+    const images = photos.server.reduce((array, item) => {
+      const { _id, url } = item;
       if (!url) {
         array.push(
-          <Image key={index} size='tiny'>
+          <Image key={_id} size='tiny'>
             <Label content='Image not found!' icon='warning' />
           </Image>
         );
       }
       array.push(
         <Image
-          key={index}
+          key={_id}
           src={url}
         />
       );

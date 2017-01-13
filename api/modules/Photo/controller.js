@@ -2,6 +2,7 @@
 import Photo from './model';
 import '../../config/cloudinaryConfig';
 
+// Takes in Cloudinary Data and stores on DB.
 export const getPublicID = (req, res) => {
   const data = req.body.result; // this should be an array of object(s)
   console.log('REQUEST FROM FRONT-END');
@@ -32,6 +33,7 @@ export const getPublicID = (req, res) => {
     );
 };
 
+// Calls up specific data for rendering on the front-end.
 export const sendToFrontEnd = (req, res) => {
   /* TODO: request from front-end should ask for:
       1) All images.
