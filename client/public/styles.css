@@ -21,10 +21,11 @@ html {
 .sidebar {
   height: 86vh;
 }
-.ui.basic.segment {
-  height: 86vh;
+.ui.basic.segment
+.library {
+  height: 84vh;
 }
-.library
+.images
 .ui.tiny.images {
   height: 83vh;
 }

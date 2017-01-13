@@ -31,14 +31,14 @@ class Library extends Component {
     }, []);
 
     return (
-      <div>
+      <div className='library'>
         {photos.server.length === 0 ? (
           <div className="initial">
             <h1>{translate('no-img')}</h1>
             <h1>{translate('upload-prompt')}</h1>
           </div>
         ) : (
-          <div className="library">
+          <div className="images">
               <Image.Group size='tiny'>
                 {images}
               </Image.Group>
