@@ -104,62 +104,6 @@ describe('API Tests', () => {
       })
       .catch(err => done(err));
   });
-  it('expects a current JWT', (done) => {
-    request(server)
-      .post('/api/v1/checkToken')
-      .send({ token })
-      .then(res => {
-        const { message, success, user } = res.body;
-        expect(res.statusCode).to.equal(201);
-        expect(success).to.equal(true);
-        expect(message).to.equal('JWT Refreshed.');
-        expect(token).to.be.a('string');
-        expect(token).to.contain('JWT');
-        expect(user).to.be.a('object');
-        done();
-      })
-      .catch((err) => done(err));
-  });
-  it('expects a 401 if no JWT present', (done) => {
-    request(server)
-      .post('/api/v1/checkToken')
-      .send({ token: '' })
-      .then(res => {
-        const { message, success } = res.body;
-        expect(res.statusCode).to.equal(401);
-        expect(success).to.equal(false);
-        expect(message).to.equal('Must have JWT.');
-        done();
-      })
-      .catch((err) => done(err));
-  });
-  it('expects a 422 if JWT cannot be verified', (done) => {
-    request(server)
-      .post('/api/v1/checkToken')
-      .send({ token: 'JWT' })
-      .then(res => {
-        const { message, success } = res.body;
-        expect(res.statusCode).to.equal(422);
-        expect(success).to.equal(false);
-        expect(message).to.equal('JWT Verification Issue.');
-        done();
-      })
-      .catch((err) => done(err));
-  });
-  // Not passing in Travis CI but passed locally????
-  it.skip('expects a 401 if decode does not return a valid user', (done) => {
-    request(server)
-      .post('/api/v1/checkToken')
-      .send({ token })
-      .then(res => {
-        const { message, success } = res.body;
-        expect(res.statusCode).to.equal(401);
-        expect(success).to.equal(false);
-        expect(message).to.equal('JWT Refresh Issue.');
-        done();
-      })
-      .catch((err) => done(err));
-  });
   it('expects authenticated user for access', (done) => {
     request(server)
       .get('/api/v1/admin')
@@ -222,6 +166,65 @@ describe('API Tests', () => {
         }
       );
   });
+  it('expects a current JWT', (done) => {
+    request(server)
+      .post('/api/v1/checkToken')
+      .send({ token })
+      .then(res => {
+        const { message, success, user } = res.body;
+        expect(res.statusCode).to.equal(201);
+        expect(success).to.equal(true);
+        expect(message).to.equal('JWT Refreshed.');
+        expect(token).to.be.a('string');
+        expect(token).to.contain('JWT');
+        expect(user).to.be.a('object');
+        done();
+      })
+      .catch((err) => done(err));
+  });
+  it('expects a 401 if no JWT present', (done) => {
+    request(server)
+      .post('/api/v1/checkToken')
+      .send({ token: '' })
+      .then(res => {
+        const { message, success } = res.body;
+        expect(res.statusCode).to.equal(401);
+        expect(success).to.equal(false);
+        expect(message).to.equal('Must have JWT.');
+        done();
+      })
+      .catch((err) => done(err));
+  });
+  it('expects a 422 if JWT cannot be verified', (done) => {
+    request(server)
+      .post('/api/v1/checkToken')
+      .send({ token: 'JWT' })
+      .then(res => {
+        const { message, success } = res.body;
+        expect(res.statusCode).to.equal(422);
+        expect(success).to.equal(false);
+        expect(message).to.equal('JWT Verification Issue.');
+        done();
+      })
+      .catch((err) => done(err));
+  });
+  it('expects a 422 if token has expired', (done) => {
+    setTimeout(() => {
+      request(server)
+        .post('/api/v1/checkToken')
+        .send({ token })
+        .then(res => {
+          const { expireTime, message, success } = res.body;
+          expect(res.statusCode).to.equal(422);
+          expect(success).to.equal(false);
+          expect(expireTime).to.equal(true);
+          expect(message).to.equal(
+            'JWT has expired. Please login again, this is for your security!');
+          done();
+        })
+        .catch((err) => done(err));
+    }, 1500);
+    });
   it.skip('expected Alablama to win', (done) => {
     const public_id = 'edef3h5ukohotwr6rp38';
     request(server)
