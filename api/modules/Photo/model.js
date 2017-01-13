@@ -1,7 +1,6 @@
 import mongoose, { Schema } from 'mongoose';
 
 // PHOTO SCHEMA
-// NOTE: May or may not use public_id. (provides use of transformations after the fact)
 const photoSchema = new Schema({
   public_id: {
     type: String,
