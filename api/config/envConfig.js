@@ -12,7 +12,8 @@ const envVariables = [
   'JWT_SECRET',
   'MONGO_URL',
   'NODE_ENV',
-  'PORT'
+  'PORT',
+  'UPLOAD_PRESET'
 ];
 
 // Check that Envvars are set.
