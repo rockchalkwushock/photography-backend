@@ -12,20 +12,20 @@ The purpose of this repository is to design and implement a backend structure fo
 
 ## How to use this repository:
 ```bash
-Clinton-Email-Server:Desktop hillary4prez$ git clone https://github.com/rockchalkwushock/photography-backend.git
-Clinton-Email-Server:Desktop hillary4prez$ cd photography-backend
-Clinton-Email-Server:photography-backend hillary4prez$ yarn install
-Clinton-Email-Server:photography-backend hillary4prez$ cd client
-Clinton-Email-Server:client hillary4prez$ yarn install
-Clinton-Email-Server:client hillary4prez$ cd ..
-Clinton-Email-Server:photography-backend hillary4prez$ mv .env_sample .env
+$ git clone https://github.com/rockchalkwushock/photography-backend.git
+$ cd photography-backend
+photography-backend $ yarn install
+photography-backend $ cd client
+client $ yarn install
+client $ cd ..
+photography-backend $ mv .env_sample .env
 ```
 ```plaintext
 NOTE: Update the env vars to your own or the repository will not run.
 API_KEY='YOUR API_KEY HERE'
 ```
 ```bash
-Clinton-Email-Server:photography-backend hillary4prez$ npm start
+photography-backend $ npm start
 ```
 Open browser to `http://localhost:3000/`
 
