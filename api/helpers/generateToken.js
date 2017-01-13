@@ -2,7 +2,6 @@ import jwt from 'jsonwebtoken';
 import '../config/envConfig';
 
 const secret = process.env.JWT_SECRET;
-
 const time = process.env.NODE_ENV === 'production' ?
                 process.env.JWT_TOKEN_EXPIRE_TIME :
                 '1s';
