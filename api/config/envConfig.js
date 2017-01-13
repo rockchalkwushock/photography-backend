@@ -8,6 +8,7 @@ const envVariables = [
   'API_KEY',
   'API_SECRET',
   'CLOUDNAME',
+  'JWT_TOKEN_EXPIRE_TIME',
   'JWT_SECRET',
   'MONGO_URL',
   'NODE_ENV',
