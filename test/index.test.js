@@ -148,10 +148,9 @@ describe('API Tests', () => {
   });
   // Not passing in Travis CI but passed locally????
   it.skip('expects a 401 if decode does not return a valid user', (done) => {
-    const faultyToken = 'JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ODY3ZTMzMTc1NmE0ZDFiYzkyZWVmNzEiLCJpYXQiOjE0ODMyMDMzNzgsImV4cCI6MTQ4MzIwNjk3OH0.tWupPEW8u66Bdxtn_LSMUuhDUUx4WHsfxudFjJyfKxU'; // eslint-disable-line
     request(server)
       .post('/api/v1/checkToken')
-      .send({ token: faultyToken })
+      .send({ token })
       .then(res => {
         const { message, success } = res.body;
         expect(res.statusCode).to.equal(401);
