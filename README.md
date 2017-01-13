@@ -11,22 +11,23 @@ API server with Authenticated Interface for a Cloudinary Upload Interface on Mas
 The purpose of this repository is to design and implement a backend structure for my friend Masha Eltsova's photography website.
 
 ## How to use this repository:
-1. git clone https://github.com/rockchalkwushock/photography-backend.git
-2. `cd photography-backend`
-3. `yarn install`
-4. `cd client`
-5. `yarn install`
-6. Create _.env_ from _.env_sample_.
+```bash
+$ git clone https://github.com/rockchalkwushock/photography-backend.git
+$ cd photography-backend
+photography-backend $ yarn install
+photography-backend $ cd client
+client $ yarn install
+client $ cd ..
+photography-backend $ mv .env_sample .env
+```
 ```plaintext
+NOTE: Update the env vars to your own or the repository will not run.
 API_KEY='YOUR API_KEY HERE'
 ```
-7. `npm start`
-8. Open browser to `http://localhost:3000/`
-```plaintext
-NOTE:
-The Signup route will be destroyed once in production.
-Code will be provide here to add back to the repository.
+```bash
+photography-backend $ npm start
 ```
+Open browser to `http://localhost:3000/`
 
 ## About the Backend
 The ultimate goal of the server is to act as a RESTful API for authenticated routes & storage of Cloudinary urls. This giving myself and Masha access to admin routes for uploading and managing the photo library for the front end views. The authentication is built using Passport.js, bcrypt, & jsonwebtoken. Authenticated & Non-Authenticated routes are managed through `redux-auth-wrapper` & `react-router`. The Cloudinary API will be accessed through the Cloudinary Widget that offers a drop zone for uploading pictures to the cloud. The Cloudinary API will send back a url for each image that will be stored in the database for later rendering on the front-end.
@@ -62,7 +63,7 @@ The Cloudinary interface will be built using Facebook's `create-react-app`. Thes
 ### Authentication
 | Route | Type | Info | Active
 | :-------------| :------------- | :---- | :----- |
-| /api/v1/signup | POST | Create Authenticated User | Temporary
+| /api/v1/signup | POST | Create Authenticated User | Active
 | /api/v1/login | POST | Authenticate User | Active
 | /api/v1/checkToken | POST | Check JWT / Issue new JWT | Active
 
