@@ -44,7 +44,6 @@ The Cloudinary interface will be built using Facebook's `create-react-app`. Thes
 ### Authentication
 | Route | Type | Info | Active
 | :-------------| :------------- | :---- | :----- |
-| /api/v1/admin | GET | Authenticated Access Point | Testing
 | /api/v1/signup | POST | Create Authenticated User | Temporary
 | /api/v1/login | POST | Authenticate User | Active
 | /api/v1/checkToken | POST | Check JWT / Issue new JWT | Active

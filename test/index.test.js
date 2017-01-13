@@ -104,20 +104,6 @@ describe('API Tests', () => {
       })
       .catch(err => done(err));
   });
-  it('expects authenticated user for access', (done) => {
-    request(server)
-      .get('/api/v1/admin')
-      .set('Authorization', token)
-      .then(res => {
-        const { message } = res.body;
-        expect(res.statusCode).to.equal(200);
-        expect(message).to.equal('Hello World!');
-        expect(token).to.be.a('string');
-        expect(token).to.contain('JWT');
-        done();
-      })
-      .catch(err => done(err));
-  });
   it('expects an array of objects upon front-end request', (done) => {
     request(server)
       .get('/api/v1/library', { collection })
