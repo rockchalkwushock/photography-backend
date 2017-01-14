@@ -6,7 +6,7 @@ import { Menu } from 'semantic-ui-react';
 const styles = {
   root: {
     auth: {
-      backgroundColor: '#2185D0',
+      backgroundColor: '#2E4172',
       fontStyle: 'italic',
       fontWeight: 'bold'
     },
@@ -30,7 +30,7 @@ const Navbar = ({ auth, logout, path, translate }) => (
         <Menu.Menu>
           <Menu.Item
             onClick={() => browserHistory.push(auth ? '/admin' : '/')}
-            style={{ color: 'white' }}
+            style={{ color: '#82BB5D' }}
           >
             {translate('title')}
           </Menu.Item>
@@ -58,7 +58,7 @@ const Navbar = ({ auth, logout, path, translate }) => (
           <Menu.Menu position="right">
           <Menu.Item
             onClick={() => logout()}
-            style={{ color: 'white' }}
+            style={{ color: '#82BB5D' }}
           >
             {translate('nav:logout')}
           </Menu.Item>

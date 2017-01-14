@@ -45,12 +45,12 @@ export const verifyToken = token => {
   const promise = new Promise((resolve, reject) => {
     axios.post('/checkToken', { token })
       .then(res => {
-      resolve(res.data); // return's promise with refreshed token & user.
+      resolve(res.data);
       })
       .catch(err => {
         const { expireTime } = err.response.data;
         if (expireTime) {
-          reject();
+          reject(err);
         }
       });
   });

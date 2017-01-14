@@ -28,7 +28,7 @@ export default (state = initialState, action) => {
       return handle(state, action, {
         start: s => ({ ...s, isFetched: false }),
         finish: s => ({ ...s, isFetched: true }),
-        failure: s => ({ ...s, error: true, message: '' }),
+        failure: s => ({ ...s, error: true, message: 'Database Error!' }),
         success: s => ({
           ...s,
           server: payload.data.payload

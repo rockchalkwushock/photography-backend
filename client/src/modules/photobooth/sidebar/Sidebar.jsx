@@ -14,7 +14,6 @@ class SideBar extends Component {
         <Sidebar.Pushable as={Segment}>
           <Sidebar
             as={Menu}
-            color={'blue'}
             width='thin'
             icon='labeled'
             visible={visible}

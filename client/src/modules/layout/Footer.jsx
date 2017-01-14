@@ -4,8 +4,8 @@ import { withTranslate } from 'react-redux-multilingual';
 const styles = {
   root: {
     auth: {
-      backgroundColor: '#2185D0',
-      color: 'white',
+      backgroundColor: '#2E4172',
+      color: '#82BB5D',
       fontStyle: 'italic',
       fontWeight: 'bold',
       position: 'absolute',
