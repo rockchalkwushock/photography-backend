@@ -10,6 +10,10 @@ API server with Authenticated Interface for a Cloudinary Upload Interface on Mas
 ## Purpose
 The purpose of this repository is to design and implement a backend structure for my friend Masha Eltsova's photography website.
 
+## Demo
+
+[![Demo Video](http://img.youtube.com/vi/3XH3yslyCRI/0.jpg)](https://www.youtube.com/watch?v=3XH3yslyCRI)
+
 ## How to use this repository:
 ```bash
 $ git clone https://github.com/rockchalkwushock/photography-backend.git
