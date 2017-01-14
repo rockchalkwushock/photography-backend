@@ -26,6 +26,9 @@ photography-backend $ mv .env_sample .env
 ```
 ```plaintext
 NOTE: Update the env vars to your own or the repository will not run.
+NOTE: The API Server port is set to 8000 because the web-dev-server is set
+to proxy http://localhost:8000 in the client/package.json.
+
 API_KEY='YOUR API_KEY HERE'
 ```
 ```bash

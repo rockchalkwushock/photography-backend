@@ -3,6 +3,7 @@ import { Server } from 'http';
 import bodyParser from 'body-parser';
 import morgan from 'morgan';
 import cors from 'cors';
+import compression from 'compression';
 import passport from 'passport';
 import { photoRoutes, userRoutes } from './modules';
 
@@ -33,6 +34,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 app.use(cors());
 app.use(passport.initialize());
+app.use(compression());
 
 // Routing
 app.use('/api/v1', [photoRoutes, userRoutes]);
