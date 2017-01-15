@@ -11,7 +11,7 @@ API server with Authenticated Interface for a Cloudinary Upload Interface on Mas
 The purpose of this repository is to design and implement a backend structure for my friend Masha Eltsova's photography website.
 
 ## Demo
-
+Watch a demo of the working interface at the following youtube link:
 [![Demo Video](http://img.youtube.com/vi/3XH3yslyCRI/0.jpg)](https://www.youtube.com/watch?v=3XH3yslyCRI)
 
 ## How to use this repository:
@@ -103,3 +103,6 @@ The Cloudinary interface will be built using Facebook's `create-react-app`. Thes
 - Add help modal for basic functionality instructions.
 
 ## Changelog
+
+## Thanks!
+Many thanks to my coding buddy @EQuimper for his help when I ran into problems with some of the Auth & Redux code. Also many thanks to @lelandrichardson for his assistance in using `redux-pack` for the first time; very cool tech!
