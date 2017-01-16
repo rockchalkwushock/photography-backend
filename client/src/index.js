@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
@@ -6,10 +7,6 @@ import ReduxToastr from 'react-redux-toastr';
 import { store } from './redux/store';
 import Routes from './Routes';
 import { translations } from './modules';
-
-require('dotenv').config({ path: '../../.env' });
-
-console.log(process.env);
 
 const DEFAULT_LANGUAGE = 'ru';
 store.dispatch(IntlActions.setLocale(DEFAULT_LANGUAGE));
@@ -20,7 +17,7 @@ render(
       <div className='provider'>
         <Routes />
         <ReduxToastr
-          timeOut={2500}
+          timeOut={1500}
           newestOnTop={false}
           preventDuplicates
           position="top-right"

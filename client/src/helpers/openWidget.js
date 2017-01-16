@@ -1,11 +1,9 @@
 import './cloudinary';
 
-console.log(process.env.CLOUD_NAME);
-
 // My Cloudinary presets.
 const cloudinaryOptions = {
-  cloud_name: process.env.CLOUD_NAME,
-  upload_preset: process.env.UPLOAD_PRESET,
+  cloud_name: process.env.REACT_APP_CLOUD_NAME,
+  upload_preset: process.env.REACT_APP_UPLOAD_PRESET,
   theme: 'minimal'
 };
 
