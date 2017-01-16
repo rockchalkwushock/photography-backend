@@ -7,13 +7,12 @@ dotenv.config();
 const envVariables = [
   'API_KEY',
   'API_SECRET',
-  'CLOUDNAME',
+  'CLOUD_NAME',
   'JWT_TOKEN_EXPIRE_TIME',
   'JWT_SECRET',
   'MONGO_URL',
   'NODE_ENV',
-  'PORT',
-  'UPLOAD_PRESET'
+  'PORT'
 ];
 
 // Check that Envvars are set.
