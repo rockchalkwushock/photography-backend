@@ -102,7 +102,8 @@ The Cloudinary interface will be built using Facebook's `create-react-app`. Thes
   * Catch messages from customers and make available to owner.
 - Add help modal for basic functionality instructions.
 
-## Changelog
+## Change Log
+See [CHANGELOG.md](https://github.com/rockchalkwushock/photography-backend/blob/master/CHANGELOG.md)
 
-## Thanks!
-Many thanks to my coding buddy @EQuimper for his help when I ran into problems with some of the Auth & Redux code. Also many thanks to @lelandrichardson for his assistance in using `redux-pack` for the first time; very cool tech!
+## Acknowledgements
+Many thanks to my coding buddy [@EQuimper](https://github.com/EQuimper) for his help when I ran into problems with some of the Auth & Redux code. Also many thanks to [@lelandrichardson](https://github.com/lelandrichardson) for his assistance in using `redux-pack` for the first time; very cool tech! Cloudinary support is rockstar status as well
