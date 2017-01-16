@@ -8,7 +8,6 @@ import passport from 'passport';
 import { photoRoutes, userRoutes } from './modules';
 
 // Configurations
-import './config/envConfig';
 import './config/dbConfig';
 
 // Envvars

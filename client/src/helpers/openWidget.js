@@ -1,9 +1,11 @@
 import './cloudinary';
 
+console.log(process.env.CLOUD_NAME);
+
 // My Cloudinary presets.
 const cloudinaryOptions = {
-  cloud_name: 'rockchalkwushock',
-  upload_preset: 'ogwn4skf',
+  cloud_name: process.env.CLOUD_NAME,
+  upload_preset: process.env.UPLOAD_PRESET,
   theme: 'minimal'
 };
 

@@ -1,5 +1,4 @@
 import mongoose from 'mongoose';
-import './envConfig';
 
 if (process.env.NODE_ENV !== 'production') {
   process.env.MONGO_URL = 'mongodb://localhost/photography-backend-dev';

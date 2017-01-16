@@ -4,7 +4,7 @@
   "description": "API server for Masha's Photography Website.",
   "scripts": {
     "start": "concurrently \"npm run server\" \"npm run client\"",
-    "server": "nodemon index.js",
+    "server": "nodemon --exec babel-node index.js",
     "client": "babel-node start-client.js",
     "test": "cross-env NODE_ENV=test nyc --reporter=html --reporter=lcov _mocha",
     "coverage": "nyc report --reporter=text-lcov | coveralls"

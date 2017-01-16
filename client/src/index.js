@@ -7,6 +7,10 @@ import { store } from './redux/store';
 import Routes from './Routes';
 import { translations } from './modules';
 
+require('dotenv').config({ path: '../../.env' });
+
+console.log(process.env);
+
 const DEFAULT_LANGUAGE = 'ru';
 store.dispatch(IntlActions.setLocale(DEFAULT_LANGUAGE));
 

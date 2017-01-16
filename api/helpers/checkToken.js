@@ -12,7 +12,6 @@ Check Token is responsible for verifying:
 */
 
 import jwt from 'jsonwebtoken';
-import '../config/envConfig';
 import { generateToken, setUserInfo } from './index';
 import { User } from '../modules';
 
