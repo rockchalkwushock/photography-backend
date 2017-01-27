@@ -1,0 +1,22 @@
+{
+  "env": {
+    "browser": true,
+    "mocha": true,
+    "node": true
+  },
+  "extends": "rallycoding",
+  "rules": {
+    "global-require": 0,
+    "no-underscore-dangle": 0,
+    "arrow-body-style": 0,
+    "no-shadow": 0,
+    "import/no-extraneous-dependencies": 0,
+    "no-return-assign": 0,
+    "generator-star-spacing": 0,
+    "camelcase": 0
+  },
+  "globals": {
+    "describe": false,
+    "it": false
+  }
+}
