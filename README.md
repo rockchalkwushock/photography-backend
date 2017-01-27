@@ -1,9 +1,9 @@
 # photography-backend
 
 
-[![Build Status](https://travis-ci.org/rockchalkwushock/photography-backend.svg?branch=master)](https://travis-ci.org/rockchalkwushock/photography-backend?branch=master)
-[![Coverage Status](https://coveralls.io/repos/github/rockchalkwushock/photography-backend/badge.svg?branch=master)](https://coveralls.io/github/rockchalkwushock/photography-backend?branch=master)
-[![Dependencies Status](https://david-dm.org/rockchalkwushock/photography-backend.svg?branch=master)](https://david-dm.org/rockchalkwushock/photography-backend.svg?branch=master)
+[![Build Status](https://travis-ci.org/rockchalkwushock/photography-backend.svg?branch=refactor)](https://travis-ci.org/rockchalkwushock/photography-backend?branch=refactor)
+[![Coverage Status](https://coveralls.io/repos/github/rockchalkwushock/photography-backend/badge.svg?branch=refactor)](https://coveralls.io/github/rockchalkwushock/photography-backend?branch=refactor)
+[![Dependencies Status](https://david-dm.org/rockchalkwushock/photography-backend.svg?branch=refactor)](https://david-dm.org/rockchalkwushock/photography-backend.svg?branch=master)
 
 API server with Authenticated Interface for a Cloudinary Upload Interface on Masha's Photography Website.
 
