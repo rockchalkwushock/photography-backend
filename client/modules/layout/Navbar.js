@@ -1,7 +1,8 @@
 import React, { PropTypes } from 'react';
-import { withTranslate } from 'react-redux-multilingual';
+import { IntlActions, withTranslate } from 'react-redux-multilingual';
 import { browserHistory } from 'react-router/es';
-import { Menu } from 'semantic-ui-react';
+import { Dropdown, Menu } from 'semantic-ui-react';
+import { store } from '../../redux/store';
 
 const styles = {
   root: {
@@ -39,6 +40,20 @@ const Navbar = ({ auth, logout, path, translate }) => (
 
         {!auth ? (
           <Menu.Menu position='right'>
+            <Dropdown item text='Language'>
+              <Dropdown.Menu>
+                <Dropdown.Item
+                  flag='ru'
+                  text='Russian'
+                  onClick={() => store.dispatch(IntlActions.setLocale('ru'))}
+                />
+                <Dropdown.Item
+                  flag='us'
+                  text='English'
+                  onClick={() => store.dispatch(IntlActions.setLocale('en'))}
+                />
+              </Dropdown.Menu>
+            </Dropdown>
             <Menu.Item
               active={path === '/signup'}
               onClick={() => browserHistory.push('/signup')}

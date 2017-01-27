@@ -1,5 +1,5 @@
 import AppContainer from './modules/entry/AppContainer';
-import HomePage from './modules/layout/HomePage';
+import LoginContainer from './modules/auth/login/LoginContainer';
 
 const errorLoading = err => (
   console.error('Dynamic page loading failed', err)
@@ -11,20 +11,12 @@ const loadRoute = cb => (
 const componentRoutes = {
   component: AppContainer,
   path: '/',
-  indexRoute: { component: HomePage },
+  indexRoute: { component: LoginContainer },
   childRoutes: [
     {
       path: '/signup',
       getComponent(location, cb) {
         System.import('./modules/auth/signup/SignupContainer')
-        .then(loadRoute(cb))
-        .catch(errorLoading);
-      }
-    },
-    {
-      path: '/login',
-      getComponent(location, cb) {
-        System.import('./modules/auth/login/LoginContainer')
         .then(loadRoute(cb))
         .catch(errorLoading);
       }
