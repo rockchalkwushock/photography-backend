@@ -4,8 +4,8 @@
 - [x] Migrate away from create-react-app (CRA).
 - [x] Switch to dotenv-safe for env var management.
 - [x] Integrate Webpack 2.
-- [ ] Migrate to dynamic routing with Webpack 2 & React-Router.
-- [ ] Use tree-shaking for performance.
+- [x] Migrate to dynamic routing with Webpack 2 & React-Router.
+- [x] Use tree-shaking for performance.
 - [ ] Deploy to Heroku.
 - [ ] Update README.md.
 - [ ] Finalize v2.0.0 in CHANGELOG.
