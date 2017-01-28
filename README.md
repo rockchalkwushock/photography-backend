@@ -61,7 +61,7 @@ The interface will be built using Facebook's React Javascript library. These fro
 ## API Endpoints
 
 ### Authentication
-| Route | Type | Info | Active
+| Route | Type | Info | Status
 | :-------------| :------------- | :---- | :----- |
 | /api/v1/signup | POST | Create Authenticated User | Active
 | /api/v1/login | POST | Authenticate User | Active
@@ -69,12 +69,21 @@ The interface will be built using Facebook's React Javascript library. These fro
 
 
 ### Photo
-| Route | Type | Info | Active
+| Route | Type | Info | Status
 | :-------------| :------------- | :---- | :----- |
 | /api/v1/library | GET | Call up `public_id` to front-end | Active
 | /api/v1/library | POST | Send `public_id` to database | Active
 | /api/v1/library/:id | DELETE | Remove from Cloud & API Server | Inactive
 
+
+### Performance
+Currently when using the throttle option in Google Chrome on the *Wi-Fi* setting the application hosted from Heroku has times of:
+```plaintext
+DOMContentLoaded 8.00s
+Load 8.24s
+```
+Likewise using the LightHouse PWA extension in Chrome the application scores: 22/100.
+It's my hope to learn more about migrating to PWA standards in the coming months and doing small refactors to this repository to make the application more performant overall. The goal would be to have this repository scoring a 60/100 in the next month. I also plan on learning more about code-splitting and how Webpack can help my application be more performant as the current bundle.js is 1.42MB & the vendor.js is a whopping 12.4MB there is definitely room for improvement on delivering less code to the DOM on initial render.
 
 ## Mockups
 ![Admin View #1](https://github.com/rockchalkwushock/photography-backend/blob/master/mockups/_admin.png "Admin View 1")
