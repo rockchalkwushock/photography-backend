@@ -11,8 +11,7 @@ const Login = ({ handleSubmit, loginUser, translate, valid }) => (
         <Grid.Column>
           <Message
             attached
-            header={translate('welcome')}
-            content={translate('login-prompt')}
+            header={translate('login-prompt')}
           />
           <Form className="attached fluid segment" onSubmit={handleSubmit(loginUser)}>
             <Form.Field>

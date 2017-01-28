@@ -4,7 +4,6 @@
      "title": "Masha Eltsova Photography",
      "signup": "Signup",
      "login": "Login",
-     "welcome": "Welcome to Admin!",
      "pass-prompt": "Please register as a user.",
      "email": "Email",
      "password": "Password",
@@ -25,7 +24,6 @@
      "upload-success": "Successfully Uploaded!",
      "fail": "Failure!",
      "db-error": "Database Error.",
-     "token": "No token found.",
      "no-auth": "Not Authorized!",
      "email-rq": "Email is required!",
      "pass-rq": "Password is required!",
@@ -35,10 +33,12 @@
      "home:h1": "YOU ARE ON THE HOMEPAGE.",
      "home:h2": "This is a non-auth view.",
      "home:h3": "This view will be setup at a later date.",
-     "temp": "Temporary",
      "page404": "Page Not Found",
      "home": "Return Home",
      "no-img": "You have no images stored yet.",
-     "upload-prompt": "Please upload images to the cloud."
+     "upload-prompt": "Please upload images to the cloud.",
+     "lang": "Language",
+     "english": "English",
+     "russian": "Russian"
  }
 }

@@ -9,7 +9,7 @@ class App extends Component {
     }
   }
   render() {
-    const { auth, children, location, logoutUser } = this.props;
+    const { auth, children, logoutUser } = this.props;
     const { user, token } = auth;
     if (user) axios.defaults.headers.common['Authorization'] = token; // eslint-disable-line
     return (
@@ -17,7 +17,6 @@ class App extends Component {
         <Navbar
           auth={user}
           logout={logoutUser}
-          path={location.pathname}
         />
         {!auth ? <h1>Not a User</h1> : children}
         <Footer auth={user} />

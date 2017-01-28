@@ -51,7 +51,7 @@ export const checkToken = () => {
     promise: verifyToken(token),
     meta: {
       onFailure: () => {
-        browserHistory.push('/login');
+        browserHistory.push('/');
         toastr.warning('Not Authorized!', 'No token found.');
       }
     }

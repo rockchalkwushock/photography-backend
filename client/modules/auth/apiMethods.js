@@ -9,7 +9,7 @@ export const unAuthUser = () => {
       user: null
     };
     axios.defaults.headers.common['Authorization'] = ''; // eslint-disable-line
-    browserHistory.push('/login');
+    browserHistory.push('/');
     resolve(data);
   });
   return promise;

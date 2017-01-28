@@ -16,9 +16,10 @@ const styles = {
   }
 };
 
-const Navbar = ({ auth, logout, path, translate }) => (
+const Navbar = ({ auth, logout, translate }) => (
     <Menu style={!auth ? styles.root : styles.root.auth}>
       {!auth ? (
+        // Masha Eltsova (non-auth)
         <Menu.Menu>
           <Menu.Item
             onClick={() => browserHistory.push(auth ? '/admin' : '/')}
@@ -28,6 +29,7 @@ const Navbar = ({ auth, logout, path, translate }) => (
           </Menu.Item>
         </Menu.Menu>
       ) : (
+        // Masha Eltsova (auth)
         <Menu.Menu>
           <Menu.Item
             onClick={() => browserHistory.push(auth ? '/admin' : '/')}
@@ -39,45 +41,61 @@ const Navbar = ({ auth, logout, path, translate }) => (
       )}
 
         {!auth ? (
+          // Language Dropdown (non-auth)
+          // Signup Button (non-auth)
           <Menu.Menu position='right'>
-            <Dropdown item text='Language'>
+            <Dropdown item text={translate('lang')}>
               <Dropdown.Menu>
                 <Dropdown.Item
                   flag='ru'
-                  text='Russian'
+                  text={translate('russian')}
                   onClick={() => store.dispatch(IntlActions.setLocale('ru'))}
                 />
                 <Dropdown.Item
                   flag='us'
-                  text='English'
+                  text={translate('english')}
                   onClick={() => store.dispatch(IntlActions.setLocale('en'))}
                 />
               </Dropdown.Menu>
             </Dropdown>
             <Menu.Item
-              active={path === '/signup'}
               onClick={() => browserHistory.push('/signup')}
               style={{ color: 'black' }}
             >
               {translate('signup')}
             </Menu.Item>
-            <Menu.Item
-              active={path === '/login'}
-              onClick={() => browserHistory.push('/login')}
-              style={{ color: 'black' }}
-            >
-              {translate('login')}
-            </Menu.Item>
           </Menu.Menu>
         ) : (
+          // Language Dropdown (auth)
+          // Logout Button (auth)
           <Menu.Menu position="right">
-          <Menu.Item
-            onClick={() => logout()}
-            style={{ color: '#82BB5D' }}
-          >
-            {translate('nav:logout')}
-          </Menu.Item>
-        </Menu.Menu>
+            <Dropdown
+              item
+              style={{ color: '#82BB5D' }}
+              text={translate('lang')}
+            >
+              <Dropdown.Menu
+                style={{ backgroundColor: '#2E4172' }}
+              >
+                <Dropdown.Item
+                  flag='ru'
+                  text={translate('russian')}
+                  onClick={() => store.dispatch(IntlActions.setLocale('ru'))}
+                />
+                <Dropdown.Item
+                  flag='us'
+                  text={translate('english')}
+                  onClick={() => store.dispatch(IntlActions.setLocale('en'))}
+                />
+              </Dropdown.Menu>
+            </Dropdown>
+            <Menu.Item
+              onClick={() => logout()}
+              style={{ color: '#82BB5D' }}
+            >
+              {translate('nav:logout')}
+            </Menu.Item>
+          </Menu.Menu>
         )}
     </Menu>
   );
@@ -85,7 +103,6 @@ const Navbar = ({ auth, logout, path, translate }) => (
 Navbar.propTypes = {
   auth: PropTypes.object,
   logout: PropTypes.func.isRequired,
-  path: PropTypes.string.isRequired,
   translate: PropTypes.func
 };
 
