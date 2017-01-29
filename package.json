@@ -33,7 +33,7 @@
     "test": "cross-env NODE_ENV=test nyc --reporter=html --reporter=lcov _mocha",
     "coveralls-cov": "nyc report --reporter=text-lcov | coveralls",
     "codecov-cov": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
-    "coverage": "coveralls-cov && codecov-cov"
+    "coverage": "npm run coveralls-cov && npm run codecov-cov"
   },
   "engines": {
     "node": "7.2.1"
