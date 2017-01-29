@@ -107,7 +107,7 @@ It's my hope to learn more about migrating to PWA standards in the coming months
 See [CHANGELOG.md](https://github.com/rockchalkwushock/photography-backend/blob/refactor/CHANGELOG.md)
 
 ## Testing
-NOTE: You must create your own .env for testing will not run!!!
+***NOTE: You must create your own .env or testing will not run!!!***
 
 ```bash
 photography-backend $ yarn test

@@ -8,6 +8,7 @@
 - Incorporated tree-shaking with certain modules for performance enhancements.
 - Fixed minor styling issues.
 - Replaced _componentWillMount()_ with _componentDidMount()_ for performance enhancements via React dev-teams recommendations to community.
+- Successfully deployed to Heroku.
 
 ## 1.1.0 - 2017-01-16
 - Updated dotenv configuration for project.

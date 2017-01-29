@@ -13,4 +13,6 @@ addons:
     - mongodb-org-server
     - g++-4.8
 script: npm test
-after_success: npm run coverage
+after_success:
+  - npm run coverage
+  - bash <(curl -s https://codecov.io/bash)
