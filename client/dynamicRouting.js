@@ -14,14 +14,6 @@ const componentRoutes = {
   indexRoute: { component: LoginContainer },
   childRoutes: [
     {
-      path: '/signup',
-      getComponent(location, cb) {
-        System.import('./modules/auth/signup/SignupContainer')
-        .then(loadRoute(cb))
-        .catch(errorLoading);
-      }
-    },
-    {
       path: '/admin',
       getComponent(location, cb) {
         System.import('./modules/photobooth/sidebar/SidebarContainer')

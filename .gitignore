@@ -41,4 +41,3 @@ jspm_packages
 .env
 .vscode/
 .idea/
-.dist/

@@ -1,25 +1,12 @@
 import { toastr } from 'react-redux-toastr';
 import { browserHistory } from 'react-router/es';
-import { CHECK_TOKEN, LOGIN_USER, LOGOUT_USER, SIGNUP_USER } from './types';
+import { CHECK_TOKEN, LOGIN_USER, LOGOUT_USER } from './types';
 import { getTokenFromRedux } from '../../utils';
 import {
   authenticateUser,
-  createAuthUser,
   unAuthUser,
   verifyToken
 } from './apiMethods';
-
-export const signupUser = values => {
-  const { email, password } = values;
-  return {
-    type: SIGNUP_USER,
-    promise: createAuthUser(email, password),
-    meta: {
-      onFailure: () => toastr.warning('Failure!', 'Signup failed!'),
-      onSuccess: () => toastr.success('Success!', 'Sigup Successful!')
-    }
-  };
-};
 
 export const loginUser = values => {
   const { email, password } = values;

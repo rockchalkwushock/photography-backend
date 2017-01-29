@@ -15,19 +15,6 @@ export const unAuthUser = () => {
   return promise;
 };
 
-export const createAuthUser = (email, password) => {
-  const promise = new Promise(resolve => {
-    axios.post('/signup', { email, password })
-      .then(res => {
-        const data = res.data;
-        axios.defaults.headers.common['Authorization'] = res.data.token; // eslint-disable-line
-        browserHistory.push('/admin');
-        resolve(data);
-      });
-  });
-  return promise;
-};
-
 export const authenticateUser = (email, password) => {
   const promise = new Promise(resolve => {
     axios.post('/login', { email, password })
