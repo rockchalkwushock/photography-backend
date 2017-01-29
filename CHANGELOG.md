@@ -1,15 +1,13 @@
 # Change Log
 
-## 2.0.0 - Pending
-- [x] Migrate away from create-react-app (CRA).
-- [x] Switch to dotenv-safe for env var management.
-- [x] Integrate Webpack 2.
-- [x] Migrate to dynamic routing with Webpack 2 & React-Router.
-- [x] Use tree-shaking for performance.
-- [x] Deploy to Heroku.
-- [x] Update README.md.
-- [ ] Finalize v2.0.0 in CHANGELOG.
-
+## 2.0.0 - 2017-01-29
+- Migrated away from the use of create-react-app.
+- Switched management of local env vars to dotenv-safe.
+- Project now built with Webpack 2.
+- Migrated to dynamic routing using Webpack 2 & React-Router.
+- Incorporated tree-shaking with certain modules for performance enhancements.
+- Fixed minor styling issues.
+- Replaced _componentWillMount()_ with _componentDidMount()_ for performance enhancements via React dev-teams recommendations to community.
 
 ## 1.1.0 - 2017-01-16
 - Updated dotenv configuration for project.

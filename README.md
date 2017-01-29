@@ -63,7 +63,7 @@ The interface will be built using Facebook's React Javascript library. These fro
 ### Authentication
 | Route | Type | Info | Status
 | :-------------| :------------- | :---- | :----- |
-| /api/v1/signup | POST | Create Authenticated User | Inactive
+| /api/v1/signup | POST | Create Authenticated User | Active
 | /api/v1/login | POST | Authenticate User | Active
 | /api/v1/checkToken | POST | Check JWT / Issue new JWT | Active
 
@@ -105,6 +105,13 @@ It's my hope to learn more about migrating to PWA standards in the coming months
 
 ## Change Log
 See [CHANGELOG.md](https://github.com/rockchalkwushock/photography-backend/blob/refactor/CHANGELOG.md)
+
+## Testing
+NOTE: You must create your own .env for testing will not run!!!
+
+```bash
+photography-backend $ yarn test
+```
 
 ## Acknowledgements
 
