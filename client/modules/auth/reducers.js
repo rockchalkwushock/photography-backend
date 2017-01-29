@@ -1,5 +1,5 @@
 import { handle } from 'redux-pack';
-import { CHECK_TOKEN, LOGIN_USER, LOGOUT_USER } from './types';
+import { CHECK_TOKEN, LOGIN_USER, LOGOUT_USER, SIGNUP_USER } from './types';
 
 const initialState = {
   error: false,
@@ -24,6 +24,7 @@ export default (state = initialState, action) => {
       }),
     });
     case LOGIN_USER:
+    case SIGNUP_USER:
     return handle(state, action, {
       start: s => ({ ...s, isFetched: false }),
       finish: s => ({ ...s, isFetched: true }),

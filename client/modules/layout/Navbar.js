@@ -58,6 +58,12 @@ const Navbar = ({ auth, logout, translate }) => (
                 />
               </Dropdown.Menu>
             </Dropdown>
+            <Menu.Item
+              onClick={() => browserHistory.push('/signup')}
+              style={{ color: 'black' }}
+            >
+              {translate('signup')}
+            </Menu.Item>
           </Menu.Menu>
         ) : (
           // Language Dropdown (auth)
