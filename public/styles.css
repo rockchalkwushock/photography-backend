@@ -82,3 +82,7 @@ html {
 ul {
   list-style-type: none;
 }
+
+footer {
+  height: 95px;
+}
