@@ -1,9 +1,9 @@
-# photography-backend
+# photography-backend - 2.0.0
 
-[![Build Status](https://travis-ci.org/rockchalkwushock/photography-backend.svg?branch=refactor)](https://travis-ci.org/rockchalkwushock/photography-backend?branch=refactor)
-[![Coverage Status](https://coveralls.io/repos/github/rockchalkwushock/photography-backend/badge.svg?branch=refactor)](https://coveralls.io/github/rockchalkwushock/photography-backend?branch=refactor)
-[![codecov](https://codecov.io/gh/rockchalkwushock/photography-backend/branch/refactor/graph/badge.svg)](https://codecov.io/gh/rockchalkwushock/photography-backend)
-[![Dependencies Status](https://david-dm.org/rockchalkwushock/photography-backend.svg?branch=refactor)](https://david-dm.org/rockchalkwushock/photography-backend.svg?branch=master)
+[![Build Status](https://travis-ci.org/rockchalkwushock/photography-backend.svg?branch=master)](https://travis-ci.org/rockchalkwushock/photography-backend?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/rockchalkwushock/photography-backend/badge.svg?branch=master)](https://coveralls.io/github/rockchalkwushock/photography-backend?branch=master)
+[![codecov](https://codecov.io/gh/rockchalkwushock/photography-backend/branch/master/graph/badge.svg)](https://codecov.io/gh/rockchalkwushock/photography-backend)
+[![Dependencies Status](https://david-dm.org/rockchalkwushock/photography-backend.svg?branch=master)](https://david-dm.org/rockchalkwushock/photography-backend.svg?branch=master)
 
 ## Purpose
 Provide Masha with an interface for uploading images to the Cloudinary API and collecting the image urls for rendering on her website.
@@ -105,7 +105,7 @@ It's my hope to learn more about migrating to PWA standards in the coming months
 - Add help modal for basic functionality instructions.
 
 ## Change Log
-See [CHANGELOG.md](https://github.com/rockchalkwushock/photography-backend/blob/refactor/CHANGELOG.md)
+See [CHANGELOG.md](https://github.com/rockchalkwushock/photography-backend/blob/master/CHANGELOG.md)
 
 ## Testing
 ***NOTE: You must create your own .env or testing will not run!!!***
