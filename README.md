@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/rockchalkwushock/photography-backend.svg?branch=refactor)](https://travis-ci.org/rockchalkwushock/photography-backend?branch=refactor)
 [![Coverage Status](https://coveralls.io/repos/github/rockchalkwushock/photography-backend/badge.svg?branch=refactor)](https://coveralls.io/github/rockchalkwushock/photography-backend?branch=refactor)
+[![codecov](https://codecov.io/gh/rockchalkwushock/photography-backend/branch/refactor/graph/badge.svg)](https://codecov.io/gh/rockchalkwushock/photography-backend)
 [![Dependencies Status](https://david-dm.org/rockchalkwushock/photography-backend.svg?branch=refactor)](https://david-dm.org/rockchalkwushock/photography-backend.svg?branch=master)
 
 ## Purpose
