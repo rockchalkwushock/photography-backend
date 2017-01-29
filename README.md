@@ -63,7 +63,7 @@ The interface will be built using Facebook's React Javascript library. These fro
 ### Authentication
 | Route | Type | Info | Status
 | :-------------| :------------- | :---- | :----- |
-| /api/v1/signup | POST | Create Authenticated User | Active
+| /api/v1/signup | POST | Create Authenticated User | Inactive
 | /api/v1/login | POST | Authenticate User | Active
 | /api/v1/checkToken | POST | Check JWT / Issue new JWT | Active
 

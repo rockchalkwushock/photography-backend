@@ -7,7 +7,7 @@
 - [x] Migrate to dynamic routing with Webpack 2 & React-Router.
 - [x] Use tree-shaking for performance.
 - [x] Deploy to Heroku.
-- [ ] Update README.md.
+- [x] Update README.md.
 - [ ] Finalize v2.0.0 in CHANGELOG.
 
 

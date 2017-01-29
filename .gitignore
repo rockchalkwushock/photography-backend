@@ -39,4 +39,5 @@ jspm_packages
 # Other
 .DS_Store
 .env
-dist/
+.vscode/
+.idea/
