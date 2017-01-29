@@ -9,6 +9,7 @@
 - Fixed minor styling issues.
 - Replaced _componentWillMount()_ with _componentDidMount()_ for performance enhancements via React dev-teams recommendations to community.
 - Successfully deployed to Heroku.
+- Code now being covered by CodeoCov as well as Coveralls.
 
 ## 1.1.0 - 2017-01-16
 - Updated dotenv configuration for project.
