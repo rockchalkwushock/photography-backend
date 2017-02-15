@@ -16,7 +16,7 @@ const componentRoutes = {
     {
       path: '/signup',
       getComponent(location, cb) {
-        import('./modules/auth/signup/SignupContainer')
+        System.import('./modules/auth/signup/SignupContainer')
         .then(loadRoute(cb))
         .catch(errorLoading);
       }
@@ -24,7 +24,7 @@ const componentRoutes = {
     {
       path: '/admin',
       getComponent(location, cb) {
-        import('./modules/photobooth/sidebar/SidebarContainer')
+        System.import('./modules/photobooth/sidebar/SidebarContainer')
         .then(loadRoute(cb))
         .catch(errorLoading);
       }
@@ -32,7 +32,7 @@ const componentRoutes = {
     {
       path: '*',
       getComponent(location, cb) {
-        import('./modules/layout/Page404')
+        System.import('./modules/layout/Page404')
         .then(loadRoute(cb))
         .catch(errorLoading);
       }

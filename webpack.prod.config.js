@@ -4,7 +4,6 @@ const webpack = require('webpack');
 const { join } = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ChunkManifestPlugin = require('chunk-manifest-webpack-plugin');
 
 const VENDOR_LIBS = [
   'axios', 'lodash-es', 'react', 'react-dom', 'react-redux',
@@ -59,10 +58,6 @@ module.exports = {
     new webpack.optimize.CommonsChunkPlugin({
       names: ['vendor', 'manifest'],
       minChunks: Infinity
-    }),
-    new ChunkManifestPlugin({
-      filename: 'chunk-manifest.json',
-      manifestVariable: 'webpackManifest'
     }),
     new webpack.NamedModulesPlugin(),
     new HtmlWebpackPlugin({

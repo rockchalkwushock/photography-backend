@@ -66,7 +66,8 @@ module.exports = {
       }
     }),
     new webpack.optimize.CommonsChunkPlugin({
-      names: ['vendor', 'manifest']
+      names: ['vendor', 'manifest'],
+      minChunks: Infinity
     }),
     new HtmlWebpackPlugin({
       template: 'public/index.html'
