@@ -41,5 +41,5 @@ dbConfig(mongoConf);
 export const server = Server(app);
 server.listen(PORT, err => {
   if (err) { return console.error(err); }
-  console.log(`App running to port: ${PORT} in ${MODE}`);
+  console.log(`App running on port: ${PORT} in ${MODE} mode.`);
 });

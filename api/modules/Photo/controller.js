@@ -4,7 +4,9 @@ import '../../config/cloudinaryConfig';
 // Takes in Cloudinary Data and stores on DB.
 export const getPublicID = (req, res) => {
   const data = req.body.result;
-  if (data === undefined) res.status(422).json({ success: false, message: 'Upload Failed!' });
+  if (data === undefined) {
+    return res.status(422).json({ success: false, message: 'Upload Failed!' });
+  }
   const insertStuff = data.reduce((array, item) => {
     array.push({
       public_id: item.public_id,
