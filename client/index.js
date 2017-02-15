@@ -6,6 +6,14 @@ import { store } from './redux/store';
 import Root from './Root';
 import './styles.css';
 
+(() => {
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js');
+  }
+})();
+
+require('offline-plugin/runtime').install();
+
 const DEFAULT_LANGUAGE = 'ru';
 store.dispatch(IntlActions.setLocale(DEFAULT_LANGUAGE));
 
