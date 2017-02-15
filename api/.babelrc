@@ -5,6 +5,9 @@
     },
     "production": {
       "presets": ["es2015", "stage-0"]
+    },
+    "test": {
+      "presets": ["es2015", "stage-0"]
     }
   }
 }
