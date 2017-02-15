@@ -51,7 +51,6 @@ module.exports = {
     port: 9000,
     hot: true,
     historyApiFallback: true,
-    open: true,
     proxy: {
       '/api': 'http://localhost:3000'
     }
@@ -66,9 +65,9 @@ module.exports = {
         UPLOAD_PRESET: JSON.stringify(process.env.UPLOAD_PRESET),
       }
     }),
-    // new webpack.optimize.CommonsChunkPlugin({
-    //   names: ['vendor', 'manifest']
-    // }),
+    new webpack.optimize.CommonsChunkPlugin({
+      names: ['vendor', 'manifest']
+    }),
     new HtmlWebpackPlugin({
       template: 'public/index.html'
     }),
