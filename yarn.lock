@@ -4884,9 +4884,9 @@ reduce-function-call@^1.0.1:
   dependencies:
     balanced-match "^0.4.2"
 
-redux-auth-wrapper@^0.10.0:
-  version "0.10.0"
-  resolved "https://registry.yarnpkg.com/redux-auth-wrapper/-/redux-auth-wrapper-0.10.0.tgz#5e51776566f1698526e74c6197917478027cd238"
+redux-auth-wrapper@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/redux-auth-wrapper/-/redux-auth-wrapper-1.0.0.tgz#9aa16f8934563efe92f684b2ab201b4f01f50381"
   dependencies:
     hoist-non-react-statics "1.2.0"
     lodash.isempty "4.4.0"
