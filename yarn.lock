@@ -4891,9 +4891,9 @@ redux-auth-wrapper@^0.10.0:
     hoist-non-react-statics "1.2.0"
     lodash.isempty "4.4.0"
 
-redux-devtools-extension@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/redux-devtools-extension/-/redux-devtools-extension-1.0.0.tgz#f8bf7a2a093b648054a3814d6d120ad8bc8beaa9"
+redux-devtools-extension@^2.13.0:
+  version "2.13.0"
+  resolved "https://registry.yarnpkg.com/redux-devtools-extension/-/redux-devtools-extension-2.13.0.tgz#c8300d72630c00999302526204d47c360cc0637f"
 
 redux-form@^6.5.0:
   version "6.5.0"
