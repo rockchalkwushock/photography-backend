@@ -31,9 +31,8 @@
     "dev:c": "cross-env NODE_ENV=development webpack-dev-server --colors --profile --config webpack.dev.config.js",
     "dev:s": "cross-env NODE_ENV=development nodemon index.js",
     "test": "cross-env NODE_ENV=test nyc --reporter=html --reporter=lcov _mocha",
-    "coveralls-cov": "nyc report --reporter=text-lcov | coveralls",
-    "codecov-cov": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
-    "coverage": "yarn run coveralls-cov"
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "local": "yarn test && yarn coverage"
   },
   "engines": {
     "node": "7.2.1"
@@ -41,7 +40,7 @@
   "devDependencies": {
     "babel-core": "^6.22.1",
     "babel-loader": "^6.2.10",
-    "babel-plugin-istanbul": "^3.1.2",
+    "babel-plugin-istanbul": "^4.0.0",
     "chai": "^3.5.0",
     "codecov": "^1.0.1",
     "coveralls": "^2.11.15",
