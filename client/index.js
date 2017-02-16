@@ -6,13 +6,17 @@ import { store } from './redux/store';
 import Root from './Root';
 import './styles.css';
 
-(() => {
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/service-worker.js');
-  }
-})();
+// If running in produciton mode will be running webpack.prod.config.js.
+// Only this config uses SW or offline-plugin.
+if (process.env.NODE_ENV === 'production') {
+  (() => {
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js');
+    }
+  })();
 
-require('offline-plugin/runtime').install();
+  require('offline-plugin/runtime').install();
+}
 
 const DEFAULT_LANGUAGE = 'ru';
 store.dispatch(IntlActions.setLocale(DEFAULT_LANGUAGE));
