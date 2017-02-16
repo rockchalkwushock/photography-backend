@@ -1,18 +1,23 @@
 {
   "env": {
     "development": {
-      "presets": ["env", ["es2015", {"modules": false}], "react", "stage-0"],
+      "presets": [["es2015", {"modules": false}], "react", "stage-0"],
       "plugins": [
         "transform-class-properties",
-        "react-hot-loader/babel"
+        "react-hot-loader/babel",
+        "syntax-dynamic-import"
       ]
     },
     "production": {
-      "presets": ["es2015", "react", "stage-0"]
+      "presets": [["es2015", {"modules": false}], "react", "stage-0"],
+      "plugins": [
+        "transform-class-properties",
+        "syntax-dynamic-import"
+      ]
     },
     "test": {
-      "presets": ["env", "es2015", "react", "stage-0"],
-      "plugins": ["istanbul"]
+      "presets": ["es2015", "react", "stage-0"],
+      "plugins": ["istanbul", "syntax-dynamic-import"]
     }
   }
 }

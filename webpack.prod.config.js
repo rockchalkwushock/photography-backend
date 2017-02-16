@@ -1,10 +1,11 @@
 require('dotenv-safe').load();
 
 const webpack = require('webpack');
-const path = require('path');
+const { join } = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const DashboardPlugin = require('webpack-dashboard/plugin');
+const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
+const OfflinePlugin = require('offline-plugin');
 
 const VENDOR_LIBS = [
   'axios', 'lodash-es', 'react', 'react-dom', 'react-redux',
@@ -15,6 +16,8 @@ const VENDOR_LIBS = [
 ];
 
 module.exports = {
+  devtool: 'cheap-module-source-map',
+  target: 'web',
   entry: {
     bundle: [
       'babel-polyfill',
@@ -23,7 +26,7 @@ module.exports = {
     vendor: VENDOR_LIBS,
   },
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: join(__dirname, 'dist'),
     filename: '[name].[hash].js',
     publicPath: '/'
   },
@@ -42,7 +45,6 @@ module.exports = {
       }
     ]
   },
-  devtool: 'inline-source-map',
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
@@ -51,15 +53,27 @@ module.exports = {
         UPLOAD_PRESET: JSON.stringify(process.env.UPLOAD_PRESET),
       }
     }),
-    new webpack.optimize.CommonsChunkPlugin({
-      names: ['vendor', 'manifest']
+    new webpack.LoaderOptionsPlugin({
+      minimize: true,
+      debug: false
     }),
-    new DashboardPlugin(),
+    new webpack.optimize.CommonsChunkPlugin({
+      names: ['vendor', 'manifest'],
+      minChunks: Infinity
+    }),
+    new webpack.NamedModulesPlugin(),
     new HtmlWebpackPlugin({
       template: 'public/index.html'
     }),
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin(),
     new ExtractTextPlugin('style.css'),
+    new SWPrecacheWebpackPlugin({
+      staticFileGlobs: [
+        'client/styles.css',
+      ],
+      stripPrefix: 'src/static/',
+      mergeStaticsConfig: true,
+      staticFileGlobsIgnorePatterns: [/\.map$/], // use this to ignore sourcemap files
+    }),
+    new OfflinePlugin()
   ]
 };

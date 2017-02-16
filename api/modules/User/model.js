@@ -25,9 +25,9 @@ userSchema.pre('save', function (next) {
   if (!this.isModified('local.password')) next();
   const salt = 10;
   hash(this.local.password, salt, (err, hashed) => {
-    if (err) next(err);
+    if (err) return next(err);
     this.local.password = hashed;
-    next();
+    return next();
   });
 });
 
@@ -35,8 +35,8 @@ userSchema.pre('save', function (next) {
 userSchema.methods.comparePassword = function (canditePassword, callback) {
   // compare the submitted password to encrypted password in database.
   compare(canditePassword, this.local.password, (err, isMatch) => {
-    if (err) callback(err);
-    callback(null, isMatch);
+    if (err) return callback(err);
+    return callback(null, isMatch);
   });
 };
 
