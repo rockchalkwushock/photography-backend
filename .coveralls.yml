@@ -1,2 +1,1 @@
-require('dotenv-safe').load();
-repo_token: COVERALLS_REPO_TOKEN
+repo_token: D8FdGh1mZJF5dThPGAns705dx2iRoVLFe
