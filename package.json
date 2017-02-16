@@ -1,6 +1,6 @@
 {
   "name": "photography-backend",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "API server for Masha's Photography Website.",
   "main": "index.js",
   "repository": "https://github.com/rockchalkwushock/photography-backend.git",

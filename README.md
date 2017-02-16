@@ -1,9 +1,9 @@
-# photography-backend - 2.0.0
+# photography-backend - 2.1.0
 
-[![Build Status](https://travis-ci.org/rockchalkwushock/photography-backend.svg?branch=beta)](https://travis-ci.org/rockchalkwushock/photography-backend?branch=beta)
-[![Coverage Status](https://coveralls.io/repos/github/rockchalkwushock/photography-backend/badge.svg?branch=beta)](https://coveralls.io/github/rockchalkwushock/photography-backend?branch=beta)
-[![codecov](https://codecov.io/gh/rockchalkwushock/photography-backend/branch/beta/graph/badge.svg)](https://codecov.io/gh/rockchalkwushock/photography-backend)
-[![Dependencies Status](https://david-dm.org/rockchalkwushock/photography-backend.svg?branch=beta)](https://david-dm.org/rockchalkwushock/photography-backend.svg?branch=beta)
+[![Build Status](https://travis-ci.org/rockchalkwushock/photography-backend.svg?branch=master)](https://travis-ci.org/rockchalkwushock/photography-backend?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/rockchalkwushock/photography-backend/badge.svg?branch=master)](https://coveralls.io/github/rockchalkwushock/photography-backend?branch=master)
+[![codecov](https://codecov.io/gh/rockchalkwushock/photography-backend/branch/master/graph/badge.svg)](https://codecov.io/gh/rockchalkwushock/photography-backend)
+[![Dependencies Status](https://david-dm.org/rockchalkwushock/photography-backend.svg?branch=master)](https://david-dm.org/rockchalkwushock/photography-backend.svg?branch=master)
 
 ## Purpose
 Provide Masha with an interface for uploading images to the Cloudinary API and collecting the image urls for rendering on her website.
@@ -77,14 +77,20 @@ The interface will be built using Facebook's React Javascript library. These fro
 | /api/v1/library/:id | DELETE | Remove from Cloud & API Server | Inactive
 
 
-### Performance
-Currently when using the throttle option in Google Chrome on the *Wi-Fi* setting the application hosted from Heroku has times of:
-```plaintext
-DOMContentLoaded 8.00s
-Load 8.24s
-```
-Likewise using the LightHouse PWA extension in Chrome the application scores: 22/100.
-It's my hope to learn more about migrating to PWA standards in the coming months and doing small refactors to this repository to make the application more performant overall. The goal would be to have this repository scoring a 60/100 in the next month. I also plan on learning more about code-splitting and how Webpack can help my application be more performant as the current bundle.js is 1.42MB & the vendor.js is a whopping 12.4MB there is definitely room for improvement on delivering less code to the DOM on initial render.
+### Performance Enhancements
+As the application is not intended to be a mobile application or viewed on a mobile viewport I am only testing performance based on *Wi-fi* for throttling. The PWA Score from [Lighthouse](https://github.com/GoogleChrome/lighthouse) is for a *progressive web application* thus a lower score for ignoring some settings specifically for mobile. I would still like to get this number at least to 60.
+
+##### Todo's
+
+- [] Add manifest.
+- [] Setup SLL Certificate.
+- [] HTTPS
+- [] HTTP/2 Setup
+
+| Version | PWA Score | Bundle Size | Vendor Size | Throttling: Wi-Fi
+| :--------| :------ | :---- | :----- | :----- |
+| 2.0.0 | 22/100 | 1.42 MB | 12.4 MB | 8.00s / 8.24s
+| 2.1.0 | 39/100 | 185 kB | 1.09 MB | 622ms / 725ms
 
 ## Mockups
 ![Admin View #1](https://github.com/rockchalkwushock/photography-backend/blob/master/mockups/_admin.png "Admin View 1")
@@ -105,10 +111,12 @@ It's my hope to learn more about migrating to PWA standards in the coming months
 - Add help modal for basic functionality instructions.
 
 ## Change Log
-See [CHANGELOG.md](https://github.com/rockchalkwushock/photography-backend/blob/beta/CHANGELOG.md)
+See [CHANGELOG.md](https://github.com/rockchalkwushock/photography-backend/blob/master/CHANGELOG.md)
 
 ## Testing
 ***NOTE: You must create your own .env or testing will not run!!!***
+
+You will also need to add your repository token from Coveralls to the `.coveralls.yml`. This can be found on the repository's homepage in Coveralls once you sync to the coverage API.
 
 ```bash
 photography-backend $ yarn test
