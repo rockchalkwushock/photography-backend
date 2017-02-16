@@ -34,8 +34,7 @@ describe('API Tests', () => {
         expect(token).to.contain('JWT');
         expect(user).to.be.a('object');
         done();
-      })
-      .catch(err => done(err));
+      });
   });
   it('expects a 422 if no email is provided', (done) => {
     request(server)
@@ -47,8 +46,7 @@ describe('API Tests', () => {
         expect(success).to.equal(false);
         expect(message).to.equal('Email is required!');
         done();
-      })
-      .catch(err => done(err));
+      });
   });
   it('expects a 422 if no password is provided', (done) => {
     request(server)
@@ -60,8 +58,7 @@ describe('API Tests', () => {
         expect(success).to.equal(false);
         expect(message).to.equal('Password is required!');
         done();
-      })
-      .catch(err => done(err));
+      });
   });
   it('expects a 422 if invalid email is provided', (done) => {
     request(server)
@@ -73,8 +70,7 @@ describe('API Tests', () => {
         expect(success).to.equal(false);
         expect(message).to.equal('Email is not valid!');
         done();
-      })
-      .catch(err => done(err));
+      });
   });
   it('expects a 422 if email provided is already in use', (done) => {
     request(server)
@@ -86,8 +82,7 @@ describe('API Tests', () => {
         expect(success).to.equal(false);
         expect(message).to.equal('Email already used!');
         done();
-      })
-      .catch(err => done(err));
+      });
   });
   it('expects a JWT token to return on login', (done) => {
     request(server)
@@ -102,29 +97,19 @@ describe('API Tests', () => {
         expect(token).to.contain('JWT');
         expect(user).to.be.a('object');
         done();
-      })
-      .catch(err => done(err));
+      });
   });
   it('expects an array of objects upon front-end request', (done) => {
     request(server)
       .get('/api/v1/library', { collection })
       .set('Authorization', token)
-      .then(
-        res => {
-          const { payload, success } = res.body;
-          expect(res.statusCode).to.equal(201);
-          expect(success).to.equal(true);
-          expect(payload).to.be.a('array');
-          done();
-        },
-        err => {
-          const { message, success } = err.res.body;
-          expect(err.res.statusCode).to.equal(500);
-          expect(success).to.equal(false);
-          expect(message).to.equal(err);
-          done();
-        }
-      );
+      .then(res => {
+        const { payload, success } = res.body;
+        expect(res.statusCode).to.equal(201);
+        expect(success).to.equal(true);
+        expect(payload).to.be.a('array');
+        done();
+      });
   });
   it('expects an array of objects from the front-end', (done) => {
     request(server)
@@ -135,23 +120,14 @@ describe('API Tests', () => {
         { public_id: 'eabc3h5ukohotwr6rp38' },
         { public_id: 'edef3h5ukohotwr6rp38' }
       ] })
-      .then(
-        res => {
-          const { cloudinary, message, success } = res.body;
-          expect(res.statusCode).to.equal(201);
-          expect(success).to.equal(true);
-          expect(message).to.equal('Successfully added to database.');
-          expect(cloudinary).to.be.a('array');
-          done();
-        },
-        err => {
-          const { message, success } = err.res.body;
-          expect(err.res.statusCode).to.equal(500);
-          expect(success).to.equal(false);
-          expect(message).to.equal(err);
-          done();
-        }
-      );
+      .then(res => {
+        const { cloudinary, message, success } = res.body;
+        expect(res.statusCode).to.equal(201);
+        expect(success).to.equal(true);
+        expect(message).to.equal('Successfully added to database.');
+        expect(cloudinary).to.be.a('array');
+        done();
+      });
   });
   it('expects a current JWT', (done) => {
     request(server)
@@ -166,8 +142,7 @@ describe('API Tests', () => {
         expect(token).to.contain('JWT');
         expect(user).to.be.a('object');
         done();
-      })
-      .catch((err) => done(err));
+      });
   });
   it('expects a 401 if no JWT present', (done) => {
     request(server)
@@ -179,8 +154,7 @@ describe('API Tests', () => {
         expect(success).to.equal(false);
         expect(message).to.equal('Must have JWT.');
         done();
-      })
-      .catch((err) => done(err));
+      });
   });
   it('expects a 422 if JWT cannot be verified', (done) => {
     request(server)
@@ -192,8 +166,7 @@ describe('API Tests', () => {
         expect(success).to.equal(false);
         expect(message).to.equal('JWT Verification Issue.');
         done();
-      })
-      .catch((err) => done(err));
+      });
   });
   it('expects a 422 if token has expired', (done) => {
     setTimeout(() => {
@@ -208,8 +181,7 @@ describe('API Tests', () => {
           expect(message).to.equal(
             'JWT has expired. Please login again, this is for your security!');
           done();
-        })
-        .catch((err) => done(err));
+        });
     }, 1500);
   });
   after((done) => {

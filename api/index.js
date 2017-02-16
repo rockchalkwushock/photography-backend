@@ -24,10 +24,6 @@ switch (MODE) {
     mongoConf = process.env.MONGO_URI;
     break;
   }
-  case 'test': {
-    mongoConf = 'mongodb://localhost/photography-dev';
-    break;
-  }
   default: {
     mongoConf = 'mongodb://localhost/photography-dev';
     break;
