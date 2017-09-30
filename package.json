@@ -31,7 +31,9 @@
     "dev:c": "cross-env NODE_ENV=development webpack-dev-server --colors --profile --config webpack.dev.config.js",
     "dev:s": "cross-env NODE_ENV=development nodemon index.js",
     "test": "cross-env NODE_ENV=test nyc --reporter=html --reporter=lcov _mocha",
-    "coverage": "nyc report --reporter=text-lcov | coveralls"
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "engines": {
     "node": "7.2.1"
@@ -99,6 +101,8 @@
     "redux-pack": "^0.1.4",
     "redux-promise-middleware": "^4.2.0",
     "semantic-ui-react": "^0.64.4",
-    "validator": "^6.2.1"
-  }
+    "validator": "^6.2.1",
+    "snyk": "^1.41.1"
+  },
+  "snyk": true
 }
